@@ -1,0 +1,83 @@
+@import "../styles/variables.css";
+
+.footer {
+  background: var(--primary);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 2.5rem 1.5rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -0.5px;
+}
+.brand .tagline {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin: 0.2rem 0 0;
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+.links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.links a:hover {
+  color: var(--gold);
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+}
+.social a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+.social a:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+.heart {
+  color: #e74c3c;
+  margin: 0 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

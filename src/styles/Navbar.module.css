@@ -1,0 +1,212 @@
+@import "../styles/variables.css";
+
+.navbar {
+  background: var(--primary);
+  color: white;
+  padding: 0 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.logoIcon {
+  color: var(--gold);
+  font-size: 1.4rem;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.navLink:hover {
+  color: white;
+  border-bottom-color: var(--gold);
+}
+.active {
+  color: white;
+  border-bottom-color: var(--gold);
+}
+
+.dropdownWrapper {
+  position: relative;
+}
+
+.dropdownTrigger {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.dropdownTrigger:hover {
+  color: white;
+}
+.arrow {
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: white;
+  min-width: 220px;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  border: 1px solid rgba(139, 0, 0, 0.05);
+}
+.dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+.dropdown::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+.dropdownItem:hover {
+  background: rgba(139, 0, 0, 0.05);
+  color: var(--primary);
+}
+
+.searchLink {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+.searchLink:hover {
+  color: white;
+}
+
+.scanBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.scanBadge svg {
+  color: var(--gold);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.mobileMenu {
+  display: none;
+  background: var(--primary-dark);
+  padding: 1rem 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mobileLink {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 0.7rem 0;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.mobileLink:hover {
+  color: white;
+}
+
+.mobileCategories {
+  margin-top: 0.5rem;
+}
+.mobileCategoriesLabel {
+  font-weight: 600;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0.5rem 0;
+}
+.mobileCategories .mobileLink {
+  padding-left: 1rem;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.mobileScan {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.6rem 1rem;
+  border-radius: 40px;
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .desktopNav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .mobileMenu {
+    display: block;
+  }
+}

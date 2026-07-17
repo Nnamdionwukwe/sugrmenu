@@ -1,0 +1,21 @@
+:root {
+  /* ── Primary: Sugar Green ── */
+  --primary: #2e5a27;
+  --primary-dark: #1e3d18;
+  --primary-light: #4a7a42;
+  --primary-rgb: 46, 90, 39;
+
+  /* ── Accent: Gold ── */
+  --gold: #d4af37;
+  --gold-light: #e8c85a;
+  --gold-rgb: 212, 175, 55;
+
+  /* ── Neutrals ── */
+  --cream: #fdf8f3;
+  --white: #ffffff;
+  --text: #2c1810;
+  --text-light: #6b4a3e;
+  --shadow: 0 4px 20px rgba(46, 90, 39, 0.08);
+  --radius: 16px;
+  --font: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
