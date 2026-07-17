@@ -304,3 +304,170 @@
 .backHomeBtn:hover {
   background: var(--primary-dark);
 }
+
+/* ── Actions (Like & Share) ────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f3f4f6;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.1s;
+}
+.iconBtn:hover {
+  background: #e5e7eb;
+}
+.iconBtn.liked {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold);
+}
+.iconBtn.liked:hover {
+  background: rgba(212, 175, 55, 0.25);
+}
+.iconLabel {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* ── Modal ────────────────────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modalClose:hover {
+  color: var(--text);
+}
+
+.modalTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.socialBtnWhatsapp,
+.socialBtnTwitter,
+.socialBtnFacebook,
+.socialBtnInstagram,
+.socialBtnTiktok,
+.socialBtnCopy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+  color: white;
+}
+.socialBtnWhatsapp {
+  background: #25d366;
+}
+.socialBtnWhatsapp:hover {
+  background: #1da851;
+}
+.socialBtnTwitter {
+  background: #1da1f2;
+}
+.socialBtnTwitter:hover {
+  background: #0d8bd9;
+}
+.socialBtnFacebook {
+  background: #1877f2;
+}
+.socialBtnFacebook:hover {
+  background: #0d65d9;
+}
+.socialBtnInstagram {
+  background: #e1306c;
+}
+.socialBtnInstagram:hover {
+  background: #c01d55;
+}
+.socialBtnTiktok {
+  background: #010101;
+}
+.socialBtnTiktok:hover {
+  background: #222;
+}
+.socialBtnCopy {
+  background: #6b7280;
+}
+.socialBtnCopy:hover {
+  background: #4b5563;
+}
+
+.socialBtnWhatsapp:hover,
+.socialBtnTwitter:hover,
+.socialBtnFacebook:hover,
+.socialBtnInstagram:hover,
+.socialBtnTiktok:hover,
+.socialBtnCopy:hover {
+  transform: scale(0.97);
+}
+
+@media (max-width: 500px) {
+  .socialGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

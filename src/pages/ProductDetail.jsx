@@ -1,11 +1,20 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaArrowLeft,
   FaHeart,
+  FaRegHeart,
   FaShare,
   FaStar,
   FaStarHalfAlt,
+  FaWhatsapp,
+  FaTwitter,
+  FaFacebook,
+  FaInstagram,
+  FaTiktok,
+  FaCopy,
+  FaTimes,
 } from "react-icons/fa";
 import { items, categories } from "../data/menuData";
 import styles from "../styles/ProductDetail.module.css";
@@ -13,11 +22,72 @@ import styles from "../styles/ProductDetail.module.css";
 export default function ProductDetail() {
   const { productId } = useParams();
   const navigate = useNavigate();
+  const [isLiked, setIsLiked] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   const item = items.find((i) => i.id === productId);
   const category = item ? categories.find((c) => c.id === item.category) : null;
 
-  // If item not found, show error with a back button
+  // ── Check liked status from localStorage ────────────────────────────
+  useEffect(() => {
+    if (!item) return;
+    const likedItems = JSON.parse(localStorage.getItem("liked_items") || "[]");
+    setIsLiked(likedItems.includes(item.id));
+  }, [item]);
+
+  // ── Toggle like ──────────────────────────────────────────────────────
+  const toggleLike = () => {
+    if (!item) return;
+    const likedItems = JSON.parse(localStorage.getItem("liked_items") || "[]");
+    let newLiked;
+    if (likedItems.includes(item.id)) {
+      newLiked = likedItems.filter((id) => id !== item.id);
+    } else {
+      newLiked = [...likedItems, item.id];
+    }
+    localStorage.setItem("liked_items", JSON.stringify(newLiked));
+    setIsLiked(!isLiked);
+  };
+
+  // ── Share handlers ──────────────────────────────────────────────────
+  const shareUrl = window.location.href;
+  const shareText = `🍽️ Check out ${item?.name} at Sugar Cocktail Bar!`;
+
+  const socialShare = (platform) => {
+    const urls = {
+      whatsapp: `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`,
+      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`,
+    };
+    if (platform === "instagram" || platform === "tiktok") {
+      copyToClipboard(`${shareText} ${shareUrl}`);
+      alert(
+        `Share link copied! Open ${platform} and paste it in your story or post.`,
+      );
+    } else if (urls[platform]) {
+      window.open(urls[platform], "_blank", "width=600,height=400");
+    }
+  };
+
+  const copyToClipboard = (text) => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+    alert("Link copied to clipboard!");
+  };
+
+  const handleCopyLink = () => {
+    copyToClipboard(`${shareText} ${shareUrl}`);
+  };
+
+  // ── If item not found ──────────────────────────────────────────────
   if (!item) {
     return (
       <div className={styles.notFound}>
@@ -30,7 +100,7 @@ export default function ProductDetail() {
     );
   }
 
-  // Get related items (same category, excluding current)
+  // ── Related items ──────────────────────────────────────────────────
   const relatedItems = items
     .filter((i) => i.category === item.category && i.id !== item.id)
     .slice(0, 4);
@@ -79,14 +149,20 @@ export default function ProductDetail() {
           </div>
           <p className={styles.description}>{item.description}</p>
 
+          {/* ── Actions: Like & Share (Icons only) ── */}
           <div className={styles.actions}>
-            <button className={styles.orderBtn}>
-              Add to Order – ₦{item.price}
+            <button
+              className={`${styles.iconBtn} ${isLiked ? styles.liked : ""}`}
+              onClick={toggleLike}
+              aria-label={isLiked ? "Unlike" : "Like"}
+            >
+              {isLiked ? <FaHeart /> : <FaRegHeart />}
             </button>
-            <button className={styles.iconBtn}>
-              <FaHeart />
-            </button>
-            <button className={styles.iconBtn}>
+            <button
+              className={styles.iconBtn}
+              onClick={() => setShowShareModal(true)}
+              aria-label="Share"
+            >
               <FaShare />
             </button>
           </div>
@@ -123,6 +199,62 @@ export default function ProductDetail() {
                 <span className={styles.relatedPrice}>₦{rel.price}</span>
               </Link>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* ─── Share Modal ─────────────────────────────────────────────── */}
+      {showShareModal && (
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setShowShareModal(false)}
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.modalClose}
+              onClick={() => setShowShareModal(false)}
+            >
+              <FaTimes />
+            </button>
+            <h3 className={styles.modalTitle}>Share this item</h3>
+            <div className={styles.socialGrid}>
+              <button
+                onClick={() => socialShare("whatsapp")}
+                className={styles.socialBtnWhatsapp}
+              >
+                <FaWhatsapp /> WhatsApp
+              </button>
+              <button
+                onClick={() => socialShare("twitter")}
+                className={styles.socialBtnTwitter}
+              >
+                <FaTwitter /> Twitter
+              </button>
+              <button
+                onClick={() => socialShare("facebook")}
+                className={styles.socialBtnFacebook}
+              >
+                <FaFacebook /> Facebook
+              </button>
+              <button
+                onClick={() => socialShare("instagram")}
+                className={styles.socialBtnInstagram}
+              >
+                <FaInstagram /> Instagram
+              </button>
+              <button
+                onClick={() => socialShare("tiktok")}
+                className={styles.socialBtnTiktok}
+              >
+                <FaTiktok /> TikTok
+              </button>
+              <button onClick={handleCopyLink} className={styles.socialBtnCopy}>
+                <FaCopy /> Copy Link
+              </button>
+            </div>
           </div>
         </div>
       )}
