@@ -46,8 +46,10 @@ export default function Home() {
           <h2 className={styles.gridTitle}>Our Menu</h2>
           <div className={styles.grid}>
             {categories.map((cat) => {
-              // Dynamically get the icon component
               const IconComponent = Icons[cat.icon];
+              // Since all icons now exist, we don't need a fallback.
+              // But we keep a safety check anyway – now using a generic icon instead of emoji.
+              const Icon = IconComponent || Icons.FaUtensils;
               return (
                 <Link
                   to={`/category/${cat.id}`}
@@ -63,11 +65,7 @@ export default function Home() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className={styles.iconWrapper}>
-                      {IconComponent ? (
-                        <IconComponent className={styles.categoryIcon} />
-                      ) : (
-                        <span className={styles.iconEmoji}>🍽️</span> // fallback
-                      )}
+                      <Icon className={styles.categoryIcon} />
                     </div>
                     <h3>{cat.name}</h3>
                   </motion.div>

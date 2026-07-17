@@ -24,9 +24,9 @@ export const categories = [
   { id: "hot-coffee", name: "Hot Coffee", icon: "FaCoffee" },
   { id: "tea", name: "Tea", icon: "FaMugHot" },
   { id: "cold-coffee", name: "Cold Coffee", icon: "FaCoffee" },
-  { id: "fresh-juice", name: "Fresh Juice", icon: "FaGlassWhiskey" },
+  { id: "fresh-juice", name: "Fresh Juice", icon: "FaGlass" },
   { id: "smoothies", name: "Sugar Special Smoothies", icon: "FaBlenderPhone" },
-  { id: "milkshakes", name: "Milk Shakes", icon: "FaGlassMilkshake" },
+  { id: "milkshakes", name: "Milk Shakes", icon: "FaGlass" },
   { id: "classic-cocktail", name: "Classic Cocktail", icon: "FaCocktail" },
   { id: "signature-cocktails", name: "Signature Cocktails", icon: "FaMartini" },
   { id: "mocktails", name: "Mocktails", icon: "FaWineGlass" },
@@ -46,7 +46,7 @@ export const categories = [
   { id: "beer", name: "Beer", icon: "FaBeer" },
   { id: "wine-per-glass", name: "Wine per Glass", icon: "FaWineGlass" },
   { id: "shots-shooters", name: "Shots & Shooters", icon: "FaShot" },
-  { id: "soft-drinks", name: "Soft Drinks", icon: "FaCannabis" },
+  { id: "soft-drinks", name: "Soft Drinks", icon: "FaBottle" },
   { id: "pack-juice", name: "Pack Juice", icon: "FaBox" },
 ];
 
