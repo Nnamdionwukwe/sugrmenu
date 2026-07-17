@@ -15,6 +15,7 @@ import {
   FaTiktok,
   FaCopy,
   FaTimes,
+  FaCheckCircle,
 } from "react-icons/fa";
 import { items, categories } from "../data/menuData";
 import styles from "../styles/ProductDetail.module.css";
@@ -24,6 +25,7 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showCopiedModal, setShowCopiedModal] = useState(false);
 
   const item = items.find((i) => i.id === productId);
   const category = item ? categories.find((c) => c.id === item.category) : null;
@@ -61,9 +63,6 @@ export default function ProductDetail() {
     };
     if (platform === "instagram" || platform === "tiktok") {
       copyToClipboard(`${shareText} ${shareUrl}`);
-      alert(
-        `Share link copied! Open ${platform} and paste it in your story or post.`,
-      );
     } else if (urls[platform]) {
       window.open(urls[platform], "_blank", "width=600,height=400");
     }
@@ -80,7 +79,11 @@ export default function ProductDetail() {
       document.execCommand("copy");
       document.body.removeChild(textarea);
     }
-    alert("Link copied to clipboard!");
+    // Show custom modal instead of alert
+    setShowCopiedModal(true);
+    setTimeout(() => {
+      setShowCopiedModal(false);
+    }, 2000);
   };
 
   const handleCopyLink = () => {
@@ -255,6 +258,16 @@ export default function ProductDetail() {
                 <FaCopy /> Copy Link
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* ─── Link Copied Modal ────────────────────────────────────────── */}
+      {showCopiedModal && (
+        <div className={styles.copiedOverlay}>
+          <div className={styles.copiedContent}>
+            <FaCheckCircle className={styles.copiedIcon} />
+            <p className={styles.copiedText}>Link copied to clipboard!</p>
           </div>
         </div>
       )}
