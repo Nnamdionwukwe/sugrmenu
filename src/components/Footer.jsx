@@ -1,4 +1,11 @@
-import { FaHeart, FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import {
+  FaHeart,
+  FaInstagram,
+  FaWhatsapp,
+  FaMapMarkerAlt,
+  FaEnvelope,
+} from "react-icons/fa";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -9,23 +16,43 @@ export default function Footer() {
           <span className={styles.logo}>Sugar</span>
           <p className={styles.tagline}>Cocktail Bar & Restaurant</p>
         </div>
+
         <div className={styles.links}>
-          <a href="#menu">Menu</a>
-          <a href="#contact">Contact</a>
-          <a href="#privacy">Privacy</a>
+          <Link to="/">Menu</Link>
+          <Link to="/contact">Contact</Link>
         </div>
+
         <div className={styles.social}>
-          <a href="#" aria-label="Instagram">
+          <a
+            href="https://wa.me/2348100817411"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <FaWhatsapp />
+          </a>
+          <a
+            href="https://www.instagram.com/sugarr_ng"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
             <FaInstagram />
           </a>
-          <a href="#" aria-label="Facebook">
-            <FaFacebook />
+          <a href="mailto:sugarexpressng@gmail.com" aria-label="Email">
+            <FaEnvelope />
           </a>
-          <a href="#" aria-label="Twitter">
-            <FaTwitter />
+          <a
+            href="https://maps.app.goo.gl/F2uKXeQp1VjrAni2A"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Location"
+          >
+            <FaMapMarkerAlt />
           </a>
         </div>
       </div>
+
       <div className={styles.bottom}>
         <p>
           © {new Date().getFullYear()} Sugar Cocktail Bar. Made with{" "}

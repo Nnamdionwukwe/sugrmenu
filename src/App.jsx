@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import styles from "./styles/App.module.css";
+import Contact from "./pages/Contact";
 
 const Home = lazy(() => import("./pages/Home"));
 const Category = lazy(() => import("./pages/Category"));
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/category/:categoryId" element={<Category />} />
             <Route path="/product/:productId" element={<ProductDetail />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>
         <Footer />
