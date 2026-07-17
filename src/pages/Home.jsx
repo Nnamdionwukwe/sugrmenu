@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { categories } from "../data/menuData";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
-import logo from "../assets/sugar-logo.PNG"; // Add your logo image in src/assets/
+import * as Icons from "react-icons/fa";
+import logo from "../assets/sugar-logo.PNG";
 
 export default function Home() {
   return (
@@ -44,28 +45,35 @@ export default function Home() {
         <div className={styles.gridWrapper}>
           <h2 className={styles.gridTitle}>Our Menu</h2>
           <div className={styles.grid}>
-            {categories.map((cat) => (
-              <Link
-                to={`/category/${cat.id}`}
-                key={cat.id}
-                className={styles.cardLink}
-              >
-                <motion.div
-                  className={styles.card}
-                  whileHover={{
-                    scale: 1.03,
-                    boxShadow: "0 10px 30px rgba(46, 90, 39, 0.15)",
-                  }}
-                  transition={{ type: "spring", stiffness: 300 }}
+            {categories.map((cat) => {
+              // Dynamically get the icon component
+              const IconComponent = Icons[cat.icon];
+              return (
+                <Link
+                  to={`/category/${cat.id}`}
+                  key={cat.id}
+                  className={styles.cardLink}
                 >
-                  <div className={styles.iconWrapper}>
-                    {/* Using emoji as fallback – you can replace with actual icons */}
-                    <span className={styles.iconEmoji}>🍽️</span>
-                  </div>
-                  <h3>{cat.name}</h3>
-                </motion.div>
-              </Link>
-            ))}
+                  <motion.div
+                    className={styles.card}
+                    whileHover={{
+                      scale: 1.03,
+                      boxShadow: "0 10px 30px rgba(46, 90, 39, 0.15)",
+                    }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <div className={styles.iconWrapper}>
+                      {IconComponent ? (
+                        <IconComponent className={styles.categoryIcon} />
+                      ) : (
+                        <span className={styles.iconEmoji}>🍽️</span> // fallback
+                      )}
+                    </div>
+                    <h3>{cat.name}</h3>
+                  </motion.div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
