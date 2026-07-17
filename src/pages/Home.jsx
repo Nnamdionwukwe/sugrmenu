@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { categories } from "../data/menuData";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
-import logo from "../assets/sugar-logo.png"; // Add your logo image in src/assets/
+import logo from "../assets/sugar-logo.PNG"; // Add your logo image in src/assets/
 
 export default function Home() {
   return (
