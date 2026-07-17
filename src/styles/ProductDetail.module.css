@@ -1,3 +1,5 @@
+@import "../styles/variables.css";
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -10,7 +12,7 @@
   gap: 0.5rem;
   background: none;
   border: none;
-  color: #6b7280;
+  color: var(--text-light, #6b7280);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -19,17 +21,17 @@
   transition: color 0.2s;
 }
 .backBtn:hover {
-  color: #1f2937;
+  color: var(--text, #1f2937);
 }
 
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  background: white;
+  background: var(--white, #ffffff);
   border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow, 0 4px 20px rgba(0, 0, 0, 0.04));
   border: 1px solid #f3f4f6;
 }
 
@@ -67,13 +69,13 @@
   padding: 0.3rem 1rem;
   border-radius: 20px;
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--text-light, #6b7280);
 }
 
 .price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #8b5cf6;
+  color: var(--gold, #d4af37);
 }
 
 .detailsSection {
@@ -85,7 +87,7 @@
 .name {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text, #1f2937);
   margin: 0;
 }
 
@@ -103,7 +105,7 @@
 }
 .ratingText {
   font-size: 0.9rem;
-  color: #6b7280;
+  color: var(--text-light, #6b7280);
   margin-left: 0.5rem;
 }
 
@@ -114,56 +116,43 @@
   margin: 0.5rem 0;
 }
 
+/* ── Actions: Like & Share (icons only) ────────────────────── */
 .actions {
   display: flex;
-  gap: 0.8rem;
+  gap: 1.2rem;
   align-items: center;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-}
-
-.orderBtn {
-  background: #8b5cf6;
-  color: white;
-  border: none;
-  padding: 0.9rem 2.2rem;
-  border-radius: 40px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition:
-    background 0.2s,
-    transform 0.1s;
-  flex: 1;
-}
-.orderBtn:hover {
-  background: #7c3aed;
-}
-.orderBtn:active {
-  transform: scale(0.97);
+  margin-top: 1.5rem;
 }
 
 .iconBtn {
-  background: #f3f4f6;
-  border: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  color: #6b7280;
+  width: 60px;
+  height: 60px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--text-light, #6b7280);
   cursor: pointer;
   transition:
     background 0.2s,
-    color 0.2s;
+    color 0.2s,
+    transform 0.1s;
 }
 .iconBtn:hover {
   background: #e5e7eb;
-  color: #1f2937;
+}
+.iconBtn.liked {
+  color: #dc2626; /* Red heart */
+  background: rgba(220, 38, 38, 0.1);
+}
+.iconBtn.liked:hover {
+  background: rgba(220, 38, 38, 0.2);
 }
 
+/* ── Tags ────────────────────────────────────────────────────── */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -176,12 +165,12 @@
   padding: 0.2rem 0.8rem;
   border-radius: 20px;
   font-size: 0.75rem;
-  color: #6b7280;
+  color: var(--text-light, #6b7280);
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
 
-/* Related items */
+/* ── Related items ───────────────────────────────────────────── */
 .related {
   margin-top: 3rem;
 }
@@ -189,7 +178,7 @@
 .relatedTitle {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text, #1f2937);
   margin-bottom: 1.5rem;
 }
 
@@ -201,7 +190,7 @@
 
 .relatedCard {
   text-decoration: none;
-  background: white;
+  background: var(--white, #ffffff);
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid #f3f4f6;
@@ -222,7 +211,7 @@
 
 .relatedName {
   font-weight: 500;
-  color: #1f2937;
+  color: var(--text, #1f2937);
   padding: 0.5rem 0.8rem 0;
   font-size: 0.95rem;
   margin: 0;
@@ -231,51 +220,12 @@
 .relatedPrice {
   display: block;
   padding: 0 0.8rem 0.8rem;
-  color: #8b5cf6;
+  color: var(--gold, #d4af37);
   font-weight: 600;
   font-size: 0.9rem;
 }
 
-.notFound {
-  text-align: center;
-  padding: 4rem 0;
-}
-.notFound h2 {
-  font-size: 1.5rem;
-  color: #1f2937;
-  margin-bottom: 1rem;
-}
-.notFound button {
-  padding: 0.75rem 2rem;
-  background: #8b5cf6;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-}
-.notFound button:hover {
-  background: #7c3aed;
-}
-
-@media (max-width: 768px) {
-  .content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.2rem;
-  }
-  .name {
-    font-size: 1.6rem;
-  }
-  .price {
-    font-size: 1.2rem;
-  }
-  .relatedGrid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-}
-
-/* ── Not found ────────────────────────────────────────────── */
+/* ── Not found ────────────────────────────────────────────────── */
 .notFound {
   text-align: center;
   padding: 4rem 2rem;
@@ -284,16 +234,16 @@
 }
 .notFound h2 {
   font-size: 1.8rem;
-  color: var(--text);
+  color: var(--text, #1f2937);
   margin-bottom: 0.5rem;
 }
 .notFound p {
-  color: var(--text-light);
+  color: var(--text-light, #6b7280);
   margin-bottom: 1.5rem;
 }
 .backHomeBtn {
   padding: 0.75rem 2.5rem;
-  background: var(--primary);
+  background: var(--primary, #2e5a27);
   color: white;
   border: none;
   border-radius: 40px;
@@ -302,49 +252,10 @@
   transition: background 0.2s;
 }
 .backHomeBtn:hover {
-  background: var(--primary-dark);
+  background: var(--primary-dark, #1e3d18);
 }
 
-/* ── Actions (Like & Share) ────────────────────────────────── */
-.actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-top: 1.5rem;
-}
-
-.iconBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #f3f4f6;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 40px;
-  font-size: 1rem;
-  color: var(--text-light);
-  cursor: pointer;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    transform 0.1s;
-}
-.iconBtn:hover {
-  background: #e5e7eb;
-}
-.iconBtn.liked {
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--gold);
-}
-.iconBtn.liked:hover {
-  background: rgba(212, 175, 55, 0.25);
-}
-.iconLabel {
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-/* ── Modal ────────────────────────────────────────────────────── */
+/* ── Share Modal ──────────────────────────────────────────────── */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -361,7 +272,7 @@
 }
 
 .modalContent {
-  background: white;
+  background: var(--white, #ffffff);
   border-radius: 24px;
   padding: 2rem;
   max-width: 420px;
@@ -377,18 +288,18 @@
   background: none;
   border: none;
   font-size: 1.4rem;
-  color: var(--text-light);
+  color: var(--text-light, #6b7280);
   cursor: pointer;
   transition: color 0.2s;
 }
 .modalClose:hover {
-  color: var(--text);
+  color: var(--text, #1f2937);
 }
 
 .modalTitle {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--text, #1f2937);
   margin: 0 0 1.5rem;
   text-align: center;
 }
@@ -464,6 +375,24 @@
 .socialBtnTiktok:hover,
 .socialBtnCopy:hover {
   transform: scale(0.97);
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.2rem;
+  }
+  .name {
+    font-size: 1.6rem;
+  }
+  .price {
+    font-size: 1.2rem;
+  }
+  .relatedGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
 }
 
 @media (max-width: 500px) {
