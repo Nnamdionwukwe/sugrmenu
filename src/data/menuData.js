@@ -96,7 +96,8 @@ export const items = [
     category: "fruit-bowls",
     description:
       "Blueberry compote, Greek yoghurt, granola, fresh berries, shaved coconut.",
-    image: imagePlaceholder("berry-bowl", "fruit"),
+    image:
+      "https://peasandcrayons.com/wp-content/uploads/2020/07/maple-pecan-granola-recipe-2.jpg",
   },
   {
     id: "crunch-yoghurt",
