@@ -114,9 +114,6 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <div className={styles.mobileScan}>
-            <FaQrcode /> Scan QR to open menu
-          </div>
         </div>
       )}
     </nav>
