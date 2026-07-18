@@ -64,7 +64,8 @@ export const items = [
     category: "batters-toasts",
     description:
       "Fluffy buttermilk pancakes served with beef bacon, eggs, sausage, maple syrup, whipped butter, whipped cream, and powdered sugar.",
-    image: imagePlaceholder("pancake", "breakfast"),
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTidRx3P3bVytr0VQo184WkNnc3tTDdNo05CmYP7DkpUg&s=10",
   },
   {
     id: "french-toast-brioche",
@@ -73,7 +74,8 @@ export const items = [
     category: "batters-toasts",
     description:
       "Brioche French toast with beef bacon, eggs, sausage, maple syrup, whipped butter, whipped cream, and powdered sugar.",
-    image: imagePlaceholder("french-toast", "breakfast"),
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTidRx3P3bVytr0VQo184WkNnc3tTDdNo05CmYP7DkpUg&s=10",
   },
   {
     id: "belgian-waffles",
