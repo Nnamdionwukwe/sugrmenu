@@ -218,7 +218,8 @@ export const items = [
     category: "early-bird",
     description:
       "3 Eggs with bell peppers, onion, tomatoes, spinach, mozzarella, and cheddar. Served with toast and sauteed potatoes.",
-    image: imagePlaceholder("omelette", "breakfast"),
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVfEq9Ih87EmSy6xYA56RtjFT3sDfgJv_aHUJbbfYNQq5aUM1gO1xVBmQ-&s=10",
   },
   {
     id: "full-english-fry-up",
@@ -227,7 +228,8 @@ export const items = [
     category: "early-bird",
     description:
       "Toast, Mushrooms, sauteed potatoes, baked beans, beef bacon, butter, grilled tomatoes, and your choice of eggs. Served with sausage (chicken or beef).",
-    image: imagePlaceholder("english-breakfast", "breakfast"),
+    image:
+      "https://assets.epicurious.com/photos/5c4b7ab537d8ef4605419f1d/1:1/w_2560%2Cc_limit/St.-Patrick's-Day-Breakfast-Hash-012319.jpg",
   },
   {
     id: "american-breakfast",
@@ -236,7 +238,8 @@ export const items = [
     category: "early-bird",
     description:
       "Pancake/waffle, Beef bacon crisps, mushroom, baked beans, choice of eggs, sauteed potatoes.",
-    image: imagePlaceholder("american-breakfast", "breakfast"),
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcLcjPTlrwGrvJh_kX4_UWyjjxPCwic2QGxDjV-iD5FMB8szgnrKSgYYI&s=10",
   },
   {
     id: "steak-eggs",
@@ -245,7 +248,8 @@ export const items = [
     category: "early-bird",
     description:
       "Ribeye steak with eggs, grilled tomatoes, sauteed potatoes, and toast. Choice of honey chimichurri, peppercorn, mushroom, or pepper sauce.",
-    image: imagePlaceholder("steak-eggs", "breakfast"),
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSisjESE8uS2_Slyyqbp7A5HhJ_hHjAQefu533P7A6_gBrIBtNjLyENtSBF&s=10",
   },
   {
     id: "yam-egg-sauce",
@@ -254,7 +258,8 @@ export const items = [
     category: "early-bird",
     description:
       "Boiled yam, saute chopped onions, tomatoes, and scotch bonnet.",
-    image: imagePlaceholder("yam-egg", "african"),
+    image:
+      "https://www.crsricebowl.org/sites/default/files/styles/hero_half_screen_desktop/public/dam/a2ygsuqt8m/usa2024102665.jpg?h=c63f14ec&itok=QNwHWEW-",
   },
 
   // ─── STARTERS ───
