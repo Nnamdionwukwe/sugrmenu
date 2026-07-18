@@ -48,6 +48,7 @@ export const categories = [
   { id: "shots-shooters", name: "Shots & Shooters", icon: "FaShot" },
   { id: "soft-drinks", name: "Soft Drinks", icon: "FaBottle" },
   { id: "pack-juice", name: "Pack Juice", icon: "FaBox" },
+  { id: "chicken-batter", name: "Chicken & Batter", icon: "FaDrumstick" },
 ];
 
 // Helper to generate a placeholder image URL (replace with actual later)
@@ -1811,5 +1812,22 @@ export const items = [
     category: "pack-juice",
     description: "Packaged cranberry juice.",
     image: imagePlaceholder("cranberry-pack", "juice"),
+  },
+  {
+    id: "chicken-waffles",
+    name: "Chicken and Waffles",
+    price: 27,
+    category: "chicken-batter",
+    description:
+      "Crispy fried chicken served with golden waffles, maple syrup, and butter.",
+    image: imagePlaceholder("chicken-waffles", "breakfast"),
+  },
+  {
+    id: "chicken-stacks",
+    name: "Chicken on Stacks",
+    price: 27,
+    category: "chicken-batter",
+    description: "A stack of chicken and waffles with a signature sauce.",
+    image: imagePlaceholder("chicken-stacks", "breakfast"),
   },
 ];
