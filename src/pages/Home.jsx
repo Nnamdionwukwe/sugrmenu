@@ -8,7 +8,6 @@ import logo from "../assets/sugar-logo.PNG";
 export default function Home() {
   return (
     <div className={styles.home}>
-      {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <motion.div
@@ -40,15 +39,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Category Grid */}
       <section className={styles.categories}>
         <div className={styles.gridWrapper}>
           <h2 className={styles.gridTitle}>Our Menu</h2>
           <div className={styles.grid}>
             {categories.map((cat) => {
               const IconComponent = Icons[cat.icon];
-              // Since all icons now exist, we don't need a fallback.
-              // But we keep a safety check anyway – now using a generic icon instead of emoji.
+              // Fallback to FaUtensils if the icon is not found (safety)
               const Icon = IconComponent || Icons.FaUtensils;
               return (
                 <Link

@@ -10,7 +10,7 @@ export const categories = [
   { id: "seafood", name: "Seafood", icon: "FaFish" },
   { id: "sides", name: "Sides", icon: "FaLeaf" },
   { id: "wings-boneless", name: "Wings & Boneless", icon: "FaDrumstickBite" },
-  { id: "pasta", name: "Pasta", icon: "FaPasta" },
+  { id: "pasta", name: "Pasta", icon: "FaUtensils" }, // ✅ changed from FaPasta
   { id: "local-dish", name: "Local Dish", icon: "FaBowlFood" },
   {
     id: "burgers-sandwiches",
@@ -25,7 +25,7 @@ export const categories = [
   { id: "tea", name: "Tea", icon: "FaMugHot" },
   { id: "cold-coffee", name: "Cold Coffee", icon: "FaCoffee" },
   { id: "fresh-juice", name: "Fresh Juice", icon: "FaGlass" },
-  { id: "smoothies", name: "Sugar Special Smoothies", icon: "FaBlenderPhone" },
+  { id: "smoothies", name: "Sugar Special Smoothies", icon: "FaBlender" },
   { id: "milkshakes", name: "Milk Shakes", icon: "FaGlass" },
   { id: "classic-cocktail", name: "Classic Cocktail", icon: "FaCocktail" },
   { id: "signature-cocktails", name: "Signature Cocktails", icon: "FaMartini" },
@@ -36,7 +36,7 @@ export const categories = [
     name: "Sugar Brunch Cocktails",
     icon: "FaChampagne",
   },
-  { id: "brunch-smoothies", name: "Brunch Smoothies", icon: "FaBlenderPhone" },
+  { id: "brunch-smoothies", name: "Brunch Smoothies", icon: "FaBlender" },
   { id: "cognac", name: "Cognac", icon: "FaWhiskey" },
   { id: "tequila", name: "Tequila", icon: "FaWineGlass" },
   { id: "whiskey", name: "Whiskey", icon: "FaWhiskey" },
