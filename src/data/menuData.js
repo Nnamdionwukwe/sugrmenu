@@ -34,14 +34,14 @@ export const categories = [
   {
     id: "signature-cocktails",
     name: "Signature Cocktails",
-    icon: "FaWineGlass",
+    icon: "FaCocktail",
   },
-  { id: "mocktails", name: "Mocktails", icon: "FaWineGlass" },
-  { id: "pitchers", name: "Pitchers", icon: "FaWineGlass" },
+  { id: "mocktails", name: "Mocktails", icon: "FaCocktail" },
+  { id: "pitchers", name: "Pitchers", icon: "FaCocktail" },
   {
     id: "brunch-cocktails",
     name: "Sugar Brunch Cocktails",
-    icon: "FaWineGlass",
+    icon: "FaCocktail",
   },
   { id: "cognac", name: "Cognac", icon: "FaWineBottle" },
   { id: "tequila", name: "Tequila", icon: "FaWineBottle" },
