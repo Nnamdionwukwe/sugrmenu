@@ -105,7 +105,8 @@ export const items = [
     price: 20,
     category: "fruit-bowls",
     description: "Greek yoghurt, granola, fresh berries, shaved coconut.",
-    image: imagePlaceholder("yoghurt-bowl", "fruit"),
+    image:
+      "https://getinspiredeveryday.com/wp-content/uploads/2022/04/Fruit-and-Yogurt-Parfaits-Get-Inspired-Everyday-11.jpg",
   },
 
   // ─── BRUNCH EXTRAS ───
