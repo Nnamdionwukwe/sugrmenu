@@ -8,7 +8,6 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  position: relative; /* ← needed for absolute positioning of mobile menu */
 }
 
 .container {
@@ -152,21 +151,21 @@
   cursor: pointer;
 }
 
-/* ── Mobile Menu – now scrollable overlay ───────────────────── */
+/* ── Mobile Menu – fixed at top of viewport ───────────────────── */
 .mobileMenu {
   display: none;
-  position: absolute;
-  top: 70px; /* matches navbar height */
+  position: fixed;
+  top: 70px;
   left: 0;
   right: 0;
+  bottom: 0;
   background: var(--primary-dark);
   padding: 1rem 1.5rem 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  max-height: calc(100vh - 70px);
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  z-index: 99;
+  z-index: 999;
 }
 
 .mobileMenu::-webkit-scrollbar {
@@ -219,7 +218,7 @@
   font-size: 0.9rem;
 }
 
-/* ── Responsive: show hamburger and mobile menu ────────────── */
+/* ── Responsive ────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .desktopNav {
     display: none;
@@ -228,6 +227,6 @@
     display: block;
   }
   .mobileMenu {
-    display: block; /* will be toggled by React's conditional rendering */
+    display: block; /* controlled by React state */
   }
 }
