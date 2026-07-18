@@ -65,7 +65,7 @@ export const items = [
     description:
       "Fluffy buttermilk pancakes served with beef bacon, eggs, sausage, maple syrup, whipped butter, whipped cream, and powdered sugar.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTidRx3P3bVytr0VQo184WkNnc3tTDdNo05CmYP7DkpUg&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL1cm6ob--vmVxUY_lI1jroxirRH9hgNEqRQyB256qb_4k6dsRnOdW-0aY&s=10",
   },
   {
     id: "french-toast-brioche",
@@ -75,7 +75,7 @@ export const items = [
     description:
       "Brioche French toast with beef bacon, eggs, sausage, maple syrup, whipped butter, whipped cream, and powdered sugar.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTidRx3P3bVytr0VQo184WkNnc3tTDdNo05CmYP7DkpUg&s=10",
+      "https://sweetandsavorymeals.com/wp-content/uploads/2019/01/moist-brioche-French-toast.jpg",
   },
   {
     id: "belgian-waffles",
@@ -84,7 +84,8 @@ export const items = [
     category: "batters-toasts",
     description:
       "Crispy Belgian waffles served with beef bacon, eggs, sausage, maple syrup, whipped butter, whipped cream, and powdered sugar.",
-    image: imagePlaceholder("waffles", "breakfast"),
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvsjI_zT_IHJjL_SgkMNbTQaxKcgays2lCzW3xVzJlr5d2TFFIRkN7W70&s=10",
   },
 
   // ─── FRUIT BOWLS ───
