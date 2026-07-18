@@ -116,7 +116,8 @@ export const items = [
     price: 8.5,
     category: "brunch-extras",
     description: "Grilled corn on the cob with butter and spices.",
-    image: imagePlaceholder("corn", "vegetable"),
+    image:
+      "https://www.seriouseats.com/thmb/POoH-EXN9POTn32rmsPZ56xg52M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250626-SEA-SmokedPaprikaHarissaButterGrilledCornontheCob-NiedleCreative-HERO-4a3e614d0dbb41a6aa2f3f26a9b0f466.jpg",
   },
   {
     id: "eggs",
@@ -124,7 +125,8 @@ export const items = [
     price: 3,
     category: "brunch-extras",
     description: "Two eggs cooked your way.",
-    image: imagePlaceholder("eggs", "breakfast"),
+    image:
+      "https://assets.heartfoundation.org.nz/images/marketing/landing-pages/egg-nutrition.png?mtime=1669000905",
   },
   {
     id: "beef-sausage",
@@ -132,7 +134,8 @@ export const items = [
     price: 3,
     category: "brunch-extras",
     description: "Two beef sausages.",
-    image: imagePlaceholder("sausage", "meat"),
+    image:
+      "https://lh3.googleusercontent.com/proxy/UqtZW3gG5iTj8Mm_6jDKEP8M8jPktaGsZBiJUkSjDz3oZngBTNXgutOZhqsb1GCVnbtXYthmMrB3ubfosw0xnnpa7rsgHZ53zXMO9-kL0LFoci241Q",
   },
   {
     id: "chicken-sausage",
@@ -140,7 +143,8 @@ export const items = [
     price: 3,
     category: "brunch-extras",
     description: "Two chicken sausages.",
-    image: imagePlaceholder("sausage", "meat"),
+    image:
+      "https://st4.depositphotos.com/1757359/28906/i/450/depositphotos_289067774-stock-photo-grilled-smoked-sausages-wooden-background.jpg",
   },
   {
     id: "avocado-slices",
@@ -148,7 +152,8 @@ export const items = [
     price: 2,
     category: "brunch-extras",
     description: "Fresh avocado slices.",
-    image: imagePlaceholder("avocado", "fruit"),
+    image:
+      "https://www.pacificvalleyfoods.com/wp-content/uploads/Avocado-slices.jpg",
   },
   {
     id: "extra-prawns",
@@ -156,7 +161,8 @@ export const items = [
     price: 8,
     category: "brunch-extras",
     description: "Extra prawns.",
-    image: imagePlaceholder("prawns", "seafood"),
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB6-J8VsXfex6pftYwI5ElIzHJ80M8phoCF-rQSV2Adi4CKch6FLRCg5U&s=10",
   },
   {
     id: "french-toast",
@@ -164,7 +170,8 @@ export const items = [
     price: 5,
     category: "brunch-extras",
     description: "French toast slice.",
-    image: imagePlaceholder("french-toast", "breakfast"),
+    image:
+      "https://cdn.loveandlemons.com/wp-content/uploads/2024/08/french-toast-recipe.jpg",
   },
   {
     id: "waffles",
@@ -172,7 +179,8 @@ export const items = [
     price: 5,
     category: "brunch-extras",
     description: "Belgian waffle.",
-    image: imagePlaceholder("waffles", "breakfast"),
+    image:
+      "https://tastesbetterfromscratch.com/wp-content/uploads/2023/03/Belgian-Waffles26-Thumbnail-1-scaled.jpg",
   },
   {
     id: "pancake",
@@ -180,7 +188,8 @@ export const items = [
     price: 5,
     category: "brunch-extras",
     description: "Two pancakes with syrup.",
-    image: imagePlaceholder("pancake", "breakfast"),
+    image:
+      "https://i.ytimg.com/vi/beNSFIeTp40/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDR7Wd0GzCJDi4X8pxR-uTUrqTKWQ",
   },
   {
     id: "side-salad",
@@ -188,7 +197,8 @@ export const items = [
     price: 3,
     category: "brunch-extras",
     description: "Fresh garden salad.",
-    image: imagePlaceholder("salad", "vegetable"),
+    image:
+      "https://www.cookedandloved.com/wp-content/uploads/2023/06/side-salad-recipe-garden.jpg",
   },
   {
     id: "potato-wedges",
@@ -196,7 +206,8 @@ export const items = [
     price: 5,
     category: "brunch-extras",
     description: "Crispy potato wedges.",
-    image: imagePlaceholder("wedges", "side"),
+    image:
+      "https://simplehomeedit.com/wp-content/uploads/2022/07/OVEN-BAKED-Crispy-Potato-Wedges-Recipe.webp",
   },
 
   // ─── EARLY BIRD ───
