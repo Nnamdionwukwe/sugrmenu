@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import * as Icons from "react-icons/fa";
 import logo from "../assets/sugar-logo.PNG";
+import QRCodeSection from "../components/QRCodeSection";
 
 export default function Home() {
   return (
@@ -72,6 +73,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Add QR Code Section ── */}
+      <QRCodeSection />
     </div>
   );
 }
