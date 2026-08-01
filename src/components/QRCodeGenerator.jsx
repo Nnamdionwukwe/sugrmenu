@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import {
   FaDownload,
@@ -34,15 +34,65 @@ export default function QRCodeGenerator({
   const [copied, setCopied] = useState(false);
   const [showShare, setShowShare] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const qrRef = useRef(null);
 
   const handleDownload = () => {
-    const canvas = document.querySelector(".qr-code-container canvas");
-    if (canvas) {
+    // Get the SVG element
+    const svgElement = document.querySelector(".qr-code-container svg");
+    if (!svgElement) {
+      console.error("SVG element not found");
+      return;
+    }
+
+    // Create a canvas element
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas size (with some padding for the QR code)
+    const padding = 20;
+    const qrSize = size || 200;
+    canvas.width = qrSize + padding * 2;
+    canvas.height = qrSize + padding * 2;
+
+    // Fill background
+    ctx.fillStyle = bgColor || "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Create an image from the SVG
+    const svgData = new XMLSerializer().serializeToString(svgElement);
+    const svgBlob = new Blob([svgData], {
+      type: "image/svg+xml;charset=utf-8",
+    });
+    const url = URL.createObjectURL(svgBlob);
+
+    const img = new Image();
+    img.onload = function () {
+      // Draw the QR code on the canvas
+      ctx.drawImage(img, padding, padding, qrSize, qrSize);
+
+      // Convert canvas to PNG and download
+      const pngUrl = canvas.toDataURL("image/png");
       const link = document.createElement("a");
       link.download = `sugar-qr-code.png`;
-      link.href = canvas.toDataURL("image/png");
+      link.href = pngUrl;
+      document.body.appendChild(link);
       link.click();
-    }
+      document.body.removeChild(link);
+
+      // Clean up
+      URL.revokeObjectURL(url);
+    };
+    img.onerror = function () {
+      console.error("Failed to load SVG image");
+      // Fallback: try downloading as SVG
+      const link = document.createElement("a");
+      link.download = `sugar-qr-code.svg`;
+      link.href = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgData)}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+    img.src = url;
   };
 
   const handleCopy = async () => {
@@ -93,7 +143,7 @@ export default function QRCodeGenerator({
     <div className={`${styles.container} ${className}`}>
       <div className={styles.qrWrapper}>
         {title && <h3 className={styles.title}>{title}</h3>}
-        <div className={`${styles.qrContainer} qr-code-container`}>
+        <div className={`${styles.qrContainer} qr-code-container`} ref={qrRef}>
           <QRCodeSVG
             value={qrValue}
             size={size}
