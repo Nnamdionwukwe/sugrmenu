@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import {
   FaDownload,
@@ -19,6 +19,97 @@ import {
 } from "react-icons/fa";
 import styles from "./QRCodeGenerator.module.css";
 
+// ── QR Code with Logo Component ──
+function QRCodeWithLogo({ value, size, logoSize = 50 }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      // Remove existing logo if any
+      let existingLogo = container.querySelector(".qr-logo-overlay");
+      if (existingLogo) {
+        existingLogo.remove();
+      }
+
+      // Create logo overlay
+      const overlay = document.createElement("div");
+      overlay.className = "qr-logo-overlay";
+      overlay.style.cssText = `
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: ${logoSize}px;
+        height: ${logoSize}px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        z-index: 10;
+        padding: 4px;
+        pointer-events: none;
+        border: 2px solid #2E5A27;
+      `;
+
+      const img = document.createElement("img");
+      img.src = "/sugar.jpg";
+      img.alt = "Sugar Cocktail Bar";
+      img.style.cssText = `
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+      `;
+      img.onerror = () => {
+        // Fallback: show text if image fails
+        overlay.innerHTML = `
+          <div style="
+            font-size: 10px;
+            font-weight: 800;
+            color: #2E5A27;
+            text-align: center;
+            line-height: 1.2;
+          ">
+            Sugar
+          </div>
+        `;
+      };
+
+      overlay.appendChild(img);
+
+      if (getComputedStyle(container).position === "static") {
+        container.style.position = "relative";
+      }
+
+      container.appendChild(overlay);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [value, size, logoSize]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="qr-code-wrapper"
+      style={{ position: "relative", display: "inline-block" }}
+    >
+      <QRCodeSVG
+        value={value}
+        size={size}
+        bgColor="#ffffff"
+        fgColor="#2E5A27"
+        level="H"
+        includeMargin={true}
+      />
+    </div>
+  );
+}
+
 export default function QRCodeGenerator({
   value,
   size = 200,
@@ -34,32 +125,25 @@ export default function QRCodeGenerator({
   const [copied, setCopied] = useState(false);
   const [showShare, setShowShare] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const qrRef = useRef(null);
 
   const handleDownload = () => {
-    // Get the SVG element
-    const svgElement = document.querySelector(".qr-code-container svg");
-    if (!svgElement) {
-      console.error("SVG element not found");
-      return;
-    }
+    const wrapper = document.querySelector(".qr-code-wrapper");
+    if (!wrapper) return;
 
-    // Create a canvas element
+    const svg = wrapper.querySelector("svg");
+    if (!svg) return;
+
+    const clonedSvg = svg.cloneNode(true);
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
+    const size = 300;
+    canvas.width = size;
+    canvas.height = size;
 
-    // Set canvas size (with some padding for the QR code)
-    const padding = 20;
-    const qrSize = size || 200;
-    canvas.width = qrSize + padding * 2;
-    canvas.height = qrSize + padding * 2;
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, size, size);
 
-    // Fill background
-    ctx.fillStyle = bgColor || "#ffffff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Create an image from the SVG
-    const svgData = new XMLSerializer().serializeToString(svgElement);
+    const svgData = new XMLSerializer().serializeToString(clonedSvg);
     const svgBlob = new Blob([svgData], {
       type: "image/svg+xml;charset=utf-8",
     });
@@ -67,30 +151,52 @@ export default function QRCodeGenerator({
 
     const img = new Image();
     img.onload = function () {
-      // Draw the QR code on the canvas
-      ctx.drawImage(img, padding, padding, qrSize, qrSize);
+      ctx.drawImage(img, 0, 0, size, size);
 
-      // Convert canvas to PNG and download
-      const pngUrl = canvas.toDataURL("image/png");
-      const link = document.createElement("a");
-      link.download = `sugar-qr-code.png`;
-      link.href = pngUrl;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Draw logo on top
+      const logoImg = new Image();
+      logoImg.src = "/sugar.jpg";
+      logoImg.onload = function () {
+        const logoSize = 60;
+        const logoX = (size - logoSize) / 2;
+        const logoY = (size - logoSize) / 2;
 
-      // Clean up
-      URL.revokeObjectURL(url);
-    };
-    img.onerror = function () {
-      console.error("Failed to load SVG image");
-      // Fallback: try downloading as SVG
-      const link = document.createElement("a");
-      link.download = `sugar-qr-code.svg`;
-      link.href = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgData)}`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, logoSize / 2 + 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
+
+        const link = document.createElement("a");
+        link.download = `sugar-qr-code.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        URL.revokeObjectURL(url);
+      };
+      logoImg.onerror = function () {
+        // Fallback: draw text
+        const logoSize = 60;
+        const logoX = (size - logoSize) / 2;
+        const logoY = (size - logoSize) / 2;
+
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, logoSize / 2 + 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#2E5A27";
+        ctx.font = "bold 20px Playfair Display, serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Sugar", size / 2, size / 2);
+
+        const link = document.createElement("a");
+        link.download = `sugar-qr-code.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        URL.revokeObjectURL(url);
+      };
     };
     img.src = url;
   };
@@ -143,15 +249,8 @@ export default function QRCodeGenerator({
     <div className={`${styles.container} ${className}`}>
       <div className={styles.qrWrapper}>
         {title && <h3 className={styles.title}>{title}</h3>}
-        <div className={`${styles.qrContainer} qr-code-container`} ref={qrRef}>
-          <QRCodeSVG
-            value={qrValue}
-            size={size}
-            bgColor={bgColor}
-            fgColor={fgColor}
-            level={level}
-            includeMargin={includeMargin}
-          />
+        <div className={`${styles.qrContainer} qr-code-container`}>
+          <QRCodeWithLogo value={qrValue} size={size} logoSize={50} />
         </div>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </div>
@@ -219,14 +318,7 @@ export default function QRCodeGenerator({
             <div className={styles.modalContent}>
               <h2 className={styles.modalTitle}>🍹 Sugar Cocktail Bar</h2>
               <div className={styles.modalQRContainer}>
-                <QRCodeSVG
-                  value={qrValue}
-                  size={280}
-                  bgColor={bgColor}
-                  fgColor={fgColor}
-                  level={level}
-                  includeMargin={includeMargin}
-                />
+                <QRCodeWithLogo value={qrValue} size={280} logoSize={60} />
               </div>
               <p className={styles.modalUrl}>{qrValue}</p>
               <div className={styles.modalActions}>
