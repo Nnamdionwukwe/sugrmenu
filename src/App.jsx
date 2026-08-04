@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SugarLoader from "./components/SugarLoader";
 import styles from "./styles/App.module.css";
 import Contact from "./pages/Contact";
 
@@ -14,7 +15,7 @@ function App() {
     <BrowserRouter>
       <div className={styles.app}>
         <Navbar />
-        <Suspense fallback={<div className={styles.loader}>Loading...</div>}>
+        <Suspense fallback={<SugarLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/category/:categoryId" element={<Category />} />
