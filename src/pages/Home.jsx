@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { categories } from "../data/menuData";
 import styles from "../styles/Home.module.css";
@@ -5,8 +6,24 @@ import { motion } from "framer-motion";
 import * as Icons from "react-icons/fa";
 import logo from "../assets/sugar-logo.PNG";
 import QRCodeSection from "../components/QRCodeSection";
+import SugarLoader from "../components/SugarLoader";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay for smooth initial load
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <SugarLoader />;
+  }
+
   return (
     <div className={styles.home}>
       <section className={styles.hero}>

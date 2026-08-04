@@ -4,12 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowLeft, FaSearch, FaFilter } from "react-icons/fa";
 import { categories, items } from "../data/menuData";
 import styles from "../styles/Category.module.css";
+import SugarLoader from "../components/SugarLoader";
 
 export default function Category() {
   const { categoryId } = useParams();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Memoize category and categoryItems to prevent re-creation on each render
   const category = useMemo(
@@ -20,6 +22,16 @@ export default function Category() {
     () => items.filter((item) => item.category === categoryId),
     [categoryId],
   );
+
+  // Simulate loading when category changes
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [categoryId]);
 
   // Update filtered items when searchTerm or categoryItems change
   useEffect(() => {
@@ -35,7 +47,12 @@ export default function Category() {
         ),
       );
     }
-  }, [searchTerm, categoryItems]); // categoryItems is stable due to useMemo
+  }, [searchTerm, categoryItems]);
+
+  // Show loader while loading
+  if (loading) {
+    return <SugarLoader />;
+  }
 
   if (!category) {
     return (

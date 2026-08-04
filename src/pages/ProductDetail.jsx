@@ -19,6 +19,7 @@ import {
 } from "react-icons/fa";
 import { items, categories } from "../data/menuData";
 import styles from "../styles/ProductDetail.module.css";
+import SugarLoader from "../components/SugarLoader";
 
 export default function ProductDetail() {
   const { productId } = useParams();
@@ -26,9 +27,31 @@ export default function ProductDetail() {
   const [isLiked, setIsLiked] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [showCopiedModal, setShowCopiedModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [item, setItem] = useState(null);
+  const [category, setCategory] = useState(null);
 
-  const item = items.find((i) => i.id === productId);
-  const category = item ? categories.find((c) => c.id === item.category) : null;
+  // ── Load item data ──────────────────────────────────────────────────
+  useEffect(() => {
+    setLoading(true);
+
+    // Simulate loading delay for smooth transition
+    const timer = setTimeout(() => {
+      const foundItem = items.find((i) => i.id === productId);
+      setItem(foundItem || null);
+
+      if (foundItem) {
+        const foundCategory = categories.find(
+          (c) => c.id === foundItem.category,
+        );
+        setCategory(foundCategory || null);
+      }
+
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [productId]);
 
   // ── Check liked status from localStorage ────────────────────────────
   useEffect(() => {
@@ -79,7 +102,6 @@ export default function ProductDetail() {
       document.execCommand("copy");
       document.body.removeChild(textarea);
     }
-    // Show custom modal instead of alert
     setShowCopiedModal(true);
     setTimeout(() => {
       setShowCopiedModal(false);
@@ -89,6 +111,11 @@ export default function ProductDetail() {
   const handleCopyLink = () => {
     copyToClipboard(`${shareText} ${shareUrl}`);
   };
+
+  // ── Show loader while loading ──────────────────────────────────────
+  if (loading) {
+    return <SugarLoader />;
+  }
 
   // ── If item not found ──────────────────────────────────────────────
   if (!item) {

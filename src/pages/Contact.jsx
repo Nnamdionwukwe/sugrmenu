@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   FaWhatsapp,
   FaEnvelope,
@@ -6,14 +7,29 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import styles from "../styles/Contact.module.css";
+import SugarLoader from "../components/SugarLoader";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(true);
   const whatsappNumber = "2348100817411";
   const email = "sugarexpressng@gmail.com";
   const mapLink = "https://maps.app.goo.gl/F2uKXeQp1VjrAni2A";
   const address = "10 Kolda Link, Wuse 2, Abuja";
   // Embed map using the full address (Google Maps embed will resolve it)
   const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(address)}`;
+
+  useEffect(() => {
+    // Simulate loading delay for smooth transition
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <SugarLoader />;
+  }
 
   return (
     <div className={styles.container}>
