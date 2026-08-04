@@ -58,7 +58,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Sugar Cocktail Bar. Made with{" "}
           <FaHeart className={styles.heart} /> in Abuja.
         </p>
-        <p>Powered By GesTechCom</p>
+        <p>Powered By GesTechCom Technologies</p>
       </div>
     </footer>
   );
