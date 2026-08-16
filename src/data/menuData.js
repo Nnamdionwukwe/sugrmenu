@@ -11,7 +11,7 @@ export const categories = [
   { id: "seafood", name: "Seafood", icon: "FaFish" },
   { id: "sides", name: "Sides", icon: "FaLeaf" },
   { id: "wings-boneless", name: "Wings & Boneless", icon: "FaDrumstickBite" },
-  { id: "pasta", name: "Pasta", icon: "FaUtensils" }, // ✅ changed from FaPasta
+  { id: "pasta", name: "Pasta", icon: "FaUtensils" },
   { id: "local-dish", name: "Local Dish", icon: "FaBowlFood" },
   {
     id: "burgers-sandwiches",
@@ -90,6 +90,27 @@ export const items = [
       "Crispy Belgian waffles served with beef bacon, eggs, sausage, maple syrup, whipped butter, whipped cream, and powdered sugar.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvsjI_zT_IHJjL_SgkMNbTQaxKcgays2lCzW3xVzJlr5d2TFFIRkN7W70&s=10",
+  },
+
+  // ─── CHICKEN & BATTER ───
+  {
+    id: "chicken-waffles",
+    name: "Chicken and Waffles",
+    price: 27,
+    category: "chicken-batter",
+    description:
+      "Crispy fried chicken served with golden waffles, maple syrup, and butter.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-jTWN_u2Wba6sBBO8yNOa2FNnivrCJvRKLAFl6YfdftKVc96GtUtW468&s=10",
+  },
+  {
+    id: "chicken-stacks",
+    name: "Chicken on Stacks",
+    price: 27,
+    category: "chicken-batter",
+    description: "A stack of chicken and waffles with a signature sauce.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc9Hi0SWmbBjwGzgmtT4ijteq69YJlJWA5SzPRX8oJIuaxxxEE-T-Mee26&s=10",
   },
 
   // ─── FRUIT BOWLS ───
@@ -198,7 +219,7 @@ export const items = [
   {
     id: "side-salad",
     name: "Side Salad",
-    price: 3,
+    price: 2,
     category: "brunch-extras",
     description: "Fresh garden salad.",
     image:
@@ -330,7 +351,7 @@ export const items = [
     price: 10,
     category: "starters",
     description:
-      "Beef or chicken seasoned ground beef or chicken, fresh onions, crispy lettuce, gooey cheese, and tasty salsa.",
+      "Beef or chicken seasoned ground beef or chicken, fresh onions, crispy lettuce, gooey cheese, and tasty salsa. (Prawns +4000)",
     image:
       "https://theforkedspoon.com/wp-content/uploads/2019/04/Ground-Beef-Tacos-700x700.jpg",
   },
@@ -627,7 +648,7 @@ export const items = [
     name: "Creole Pasta",
     price: 20,
     category: "pasta",
-    description: "Chicken +20,000 | Prawn +25,000 | Salmon + 27,000",
+    description: "Chicken +20,000 | Prawn +25,000 | Salmon +27,000",
     image:
       "https://khinskitchen.com/wp-content/uploads/2022/06/salmon-and-prawn-pasta-09.jpg",
   },
@@ -815,54 +836,74 @@ export const items = [
 
   // ─── PLATTERS ───
   {
-    id: "seafood-platter",
-    name: "Seafood Platter",
-    price: 65,
+    id: "sunday-brunch-platter",
+    name: "Sunday Brunch Platter",
+    price: 32,
     category: "platters",
     description:
-      "Grilled Prawns, Grilled Calamari, Peppered Snail, Fries (Plantain/Yam/Potato), Prawn Springroll, Fish Bites.",
+      "Waffles, Pancakes, Sausages, Eggs, Toast, Maple Syrup, Nuts (Cashew).",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
   },
   {
-    id: "protein-platter",
-    name: "Protein Platter",
-    price: 50,
+    id: "taco-fiesta-board",
+    name: "Taco Fiesta Board",
+    price: 40,
     category: "platters",
     description:
-      "Corn Dog, Chicken Lollipop, Gizzard, Asun, Fries (Plantain/Yam/Potato), Chicken Croquette.",
+      "3 Beef Tacos, 3 Chicken Tacos, 3 Prawns Tacos, Guacamole, Pico de Gallo, Sour Cream, Quesadilla.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz0W0s9LvZ8SDZz45TEBbzildddfAXGF5QSRpXhLRJQx8ccL5CYxBFBN2u&s=10",
+  },
+  {
+    id: "sugar-street-feast",
+    name: "Sugar Street Feast (2 - 3 Persons)",
+    price: 45,
+    category: "platters",
+    description:
+      "Corn Dog, Chicken Lollipop, Gizzard, Asun, Fries (Yam, Plantain, Potato), Chicken Croquette.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9RZDIkFF05CKtg4awuWIux00ocp-vuptBq8YQ1ejgQLI3rRIE7EKtSrgV&s=10",
   },
   {
-    id: "african-platter",
-    name: "African Platter",
-    price: 50,
+    id: "suya-grill-board",
+    name: "Suya & Grill Board (African Twist)",
+    price: 45,
     category: "platters",
     description:
-      "Nigerian Jollof, Senegalese Jollof, Asun, Coleslaw, Yaji Wings, Beef Suya.",
+      "Beef Suya, Chicken Suya, Gas Meat/Wings, Grilled Plantain, Yam Fries, Pepper Sauce, Onions, Tomatoes, Cucumber, Senegalese Jollof.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE3BgNsS0e9gnW0OyJ10I5gD90iKPvq5p-uxZqw7J_8ZGy92smpHmhj-M&s=10",
   },
   {
-    id: "mixed-platter",
-    name: "Mixed Platter",
-    price: 50,
+    id: "seafood-feast-platter",
+    name: "Seafood Feast Platter (2 - 3 People)",
+    price: 75,
     category: "platters",
     description:
-      "Prawn Springrolls, Grilled Calamari, Asun, Corn Dog, Chicken Lollipop.",
+      "Grilled Prawns, Grilled Calamari, Peppered Snail (2 pieces), Crispy Fish Bites, Shrimp Skewers (2 pieces), Fries (Yam, Plantain, Potato), Lemon Butter Dip.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSawTXr5UMuhBjppUveStQalQQHRSH47s1v-1GpDdETATlYGeuSvOqBveXS&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
   },
   {
-    id: "mexican-combo-platter",
-    name: "Mexican Combo Platter",
-    price: 58,
+    id: "grill-house-platter",
+    name: "Grill House Platter (3 - 5 Persons)",
+    price: 75,
     category: "platters",
     description:
-      "Elotes, Loaded Nachos, Burrito, Quesadilla (Chicken/Beef), Tacos (Chicken/Beef).",
+      "Beef Fillet, Half Baby Chicken, Grilled Sausage (Chicken & Beef - 2 each), Corn on Cob, Potato Wedges, Chimichurri Sauce, Pepper Sauce.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz0W0s9LvZ8SDZz45TEBbzildddfAXGF5QSRpXhLRJQx8ccL5CYxBFBN2u&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
+  },
+  {
+    id: "sugar-royale-platter",
+    name: "Sugar Royale Platter",
+    price: 95,
+    category: "platters",
+    description:
+      "Our ultimate premium sharing board. Choose your selection of premium meat & seafood.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
   },
 
   // ─── DRINKS: HOT COFFEE ───
@@ -1192,7 +1233,7 @@ export const items = [
   {
     id: "mojito",
     name: "Mojito",
-    price: 12,
+    price: 14,
     category: "classic-cocktail",
     description: "Rum, mint leaf, lime, sugar, soda.",
     image:
@@ -1460,8 +1501,6 @@ export const items = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxrSs6B7QbjaGPiz0qSpgRmLIDWkKdJin2Pz2rOz_gQ5EdbfjGC_9pUM6&s=10",
   },
-
-  // ─── MOCKTAIL PITCHER ───
   {
     id: "mocktail-pitcher-tropical-sunrise",
     name: "Mocktail Pitcher - Tropical Sunrise",
@@ -2010,24 +2049,5 @@ export const items = [
     description: "Packaged cranberry juice.",
     image:
       "https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/7/2019/11/Ocean-Spray.jpg",
-  },
-  {
-    id: "chicken-waffles",
-    name: "Chicken and Waffles",
-    price: 27,
-    category: "chicken-batter",
-    description:
-      "Crispy fried chicken served with golden waffles, maple syrup, and butter.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-jTWN_u2Wba6sBBO8yNOa2FNnivrCJvRKLAFl6YfdftKVc96GtUtW468&s=10",
-  },
-  {
-    id: "chicken-stacks",
-    name: "Chicken on Stacks",
-    price: 27,
-    category: "chicken-batter",
-    description: "A stack of chicken and waffles with a signature sauce.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc9Hi0SWmbBjwGzgmtT4ijteq69YJlJWA5SzPRX8oJIuaxxxEE-T-Mee26&s=10",
   },
 ];
