@@ -843,7 +843,7 @@ export const items = [
     description:
       "Waffles, Pancakes, Sausages, Eggs, Toast, Maple Syrup, Nuts (Cashew).",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVvxdLxJrN-RDYK3SiKSUW-ERPl5mu90Xov5uelKw8hE4xaqksIv142A&s=10",
   },
   {
     id: "taco-fiesta-board",
@@ -853,7 +853,7 @@ export const items = [
     description:
       "3 Beef Tacos, 3 Chicken Tacos, 3 Prawns Tacos, Guacamole, Pico de Gallo, Sour Cream, Quesadilla.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz0W0s9LvZ8SDZz45TEBbzildddfAXGF5QSRpXhLRJQx8ccL5CYxBFBN2u&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsLPaRUpsdJScdz74r2PDmEGVkRw-uZWQfKhKXGrt_R_hHlcymFMdbHIc&s=10",
   },
   {
     id: "sugar-street-feast",
@@ -863,7 +863,7 @@ export const items = [
     description:
       "Corn Dog, Chicken Lollipop, Gizzard, Asun, Fries (Yam, Plantain, Potato), Chicken Croquette.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9RZDIkFF05CKtg4awuWIux00ocp-vuptBq8YQ1ejgQLI3rRIE7EKtSrgV&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTldDGF7f47Kf_5j7aE_VU-lblGdUtQCFdZUET1nwKOSalC8ey_df9pgbw&s=10",
   },
   {
     id: "suya-grill-board",
@@ -883,7 +883,7 @@ export const items = [
     description:
       "Grilled Prawns, Grilled Calamari, Peppered Snail (2 pieces), Crispy Fish Bites, Shrimp Skewers (2 pieces), Fries (Yam, Plantain, Potato), Lemon Butter Dip.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
+      "https://i0.wp.com/dennistheprescott.com/wp-content/uploads/2015/05/dsc_1587-e1430836806759.jpg?ssl=1",
   },
   {
     id: "grill-house-platter",
@@ -893,7 +893,7 @@ export const items = [
     description:
       "Beef Fillet, Half Baby Chicken, Grilled Sausage (Chicken & Beef - 2 each), Corn on Cob, Potato Wedges, Chimichurri Sauce, Pepper Sauce.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgltNn_iPCHjzXRZHrATTIi8-riksoKA21bPSIJ5OPeaRMUKUtNMnrUHo&s=10",
   },
   {
     id: "sugar-royale-platter",
@@ -903,7 +903,7 @@ export const items = [
     description:
       "Our ultimate premium sharing board. Choose your selection of premium meat & seafood.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yUTlUUWgI9-1AXKm3fQHZhJB8u5Cge_E-7mQv3pV_usqlBZscd63uWw&s=10",
+      "https://www.healthyfood.com/wp-content/uploads/2024/12/HFG1224_Barbecue-platter-1024x891.jpg",
   },
 
   // ─── DRINKS: HOT COFFEE ───
