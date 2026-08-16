@@ -55,7 +55,7 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <p>
-          © {new Date().getFullYear()} Sugar Cocktail Bar & Resturant. 10 Kolda
+          © {new Date().getFullYear()} Sugar Cocktail Bar & Restaurant. 10 Kolda
           Link, Wuse 2. Made with <FaHeart className={styles.heart} /> in Abuja.
         </p>
         <p>Powered By GesTechCom Technologies</p>
