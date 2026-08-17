@@ -58,7 +58,18 @@ export default function Footer() {
           © {new Date().getFullYear()} Sugar Cocktail Bar & Restaurant. 10 Kolda
           Link, Wuse 2. Made with <FaHeart className={styles.heart} /> in Abuja.
         </p>
-        <p>Powered By GesTechCom Technologies</p>
+        <div className={styles.footerCopy2}>
+          powered by{" "}
+          <a
+            className={styles.footerLink}
+            href="https://www.gestechcom.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            GesTechCom Technologies
+          </a>
+        </div>
       </div>
     </footer>
   );
