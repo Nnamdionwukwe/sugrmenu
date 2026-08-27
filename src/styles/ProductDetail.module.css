@@ -547,3 +547,11 @@
     padding: 0.3rem 1rem;
   }
 }
+
+.vatNotice {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
