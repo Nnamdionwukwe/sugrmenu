@@ -469,15 +469,7 @@ export default function ProductDetail() {
         <FaArrowLeft /> Back to Menu
       </button>
 
-      <div className={styles.vatNotice}>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          VAT 7.5% and service charge 5% not inclusive
-        </motion.p>
-      </div>
+      
 
       {/* Main Card */}
       <motion.div

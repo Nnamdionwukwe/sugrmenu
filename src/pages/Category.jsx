@@ -408,16 +408,6 @@ export default function Category() {
         <div className={styles.spacer} />
       </div>
 
-      <div className={styles.vatNotice}>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          VAT 7.5% and service charge 5% not inclusive
-        </motion.p>
-      </div>
-
       {/* Search bar */}
       <div className={styles.searchBar}>
         <FaSearch className={styles.searchIcon} />
