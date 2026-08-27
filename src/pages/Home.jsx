@@ -60,6 +60,16 @@ export default function Home() {
       <section className={styles.categories}>
         <div className={styles.gridWrapper}>
           <h2 className={styles.gridTitle}>Our Menu</h2>
+
+          <div className={styles.vatNotice}>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              VAT 7.3% and service charge 3% not inclusive
+            </motion.p>
+          </div>
           <div className={styles.grid}>
             {categories.map((cat) => {
               const IconComponent = Icons[cat.icon];

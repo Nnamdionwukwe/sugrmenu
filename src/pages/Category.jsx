@@ -118,7 +118,7 @@ export default function Category() {
                 }}
               >
                 <Link to={`/product/${item.id}`} className={styles.cardLink}>
-                  <div className={styles.imageWrapper}>
+                  {/* <div className={styles.imageWrapper}>
                     <img
                       src={item.image}
                       alt={item.name}
@@ -128,9 +128,12 @@ export default function Category() {
                     {item.price && (
                       <span className={styles.priceBadge}>₦{item.price}</span>
                     )}
-                  </div>
+                  </div> */}
                   <div className={styles.info}>
                     <h3 className={styles.itemName}>{item.name}</h3>
+                    {item.price && (
+                      <span className={styles.priceBadge}>₦{item.price}</span>
+                    )}
                     <p className={styles.description}>{item.description}</p>
                   </div>
                 </Link>

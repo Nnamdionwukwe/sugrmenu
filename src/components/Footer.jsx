@@ -7,6 +7,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import styles from "./Footer.module.css";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -54,10 +55,18 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          VAT 7.3% and service charge 3% not inclusive
+        </motion.p>
         <p>
           © {new Date().getFullYear()} Sugar Cocktail Bar & Restaurant. 10 Kolda
           Link, Wuse 2. Made with <FaHeart className={styles.heart} /> in Abuja.
         </p>
+
         <div className={styles.footerCopy2}>
           powered by{" "}
           <a
