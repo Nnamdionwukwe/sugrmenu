@@ -130,10 +130,12 @@ export default function Category() {
                     )}
                   </div> */}
                   <div className={styles.info}>
-                    <h3 className={styles.itemName}>{item.name}</h3>
-                    {item.price && (
-                      <span className={styles.priceBadge}>₦{item.price}</span>
-                    )}
+                    <div className={styles.namePriceWrapper}>
+                      <h3 className={styles.itemName}>{item.name}</h3>
+                      {item.price && (
+                        <span className={styles.priceBadge}>₦{item.price}</span>
+                      )}
+                    </div>
                     <p className={styles.description}>{item.description}</p>
                   </div>
                 </Link>

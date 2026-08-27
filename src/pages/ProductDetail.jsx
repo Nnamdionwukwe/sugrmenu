@@ -16,6 +16,8 @@ import {
   FaCopy,
   FaTimes,
   FaCheckCircle,
+  FaUtensils,
+  FaTag,
 } from "react-icons/fa";
 import { items, categories } from "../data/menuData";
 import styles from "../styles/ProductDetail.module.css";
@@ -35,7 +37,6 @@ export default function ProductDetail() {
   useEffect(() => {
     setLoading(true);
 
-    // Simulate loading delay for smooth transition
     const timer = setTimeout(() => {
       const foundItem = items.find((i) => i.id === productId);
       setItem(foundItem || null);
@@ -139,80 +140,92 @@ export default function ProductDetail() {
     <div className={styles.container}>
       {/* Back button */}
       <button className={styles.backBtn} onClick={() => navigate(-1)}>
-        <FaArrowLeft /> Back
+        <FaArrowLeft /> Back to Menu
       </button>
 
-      <div className={styles.content}>
-        {/* Left: Image */}
-        <motion.div
-          className={styles.imageSection}
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className={styles.imageWrapper}>
-            <img src={item.image} alt={item.name} className={styles.image} />
-          </div>
-          <div className={styles.imageMeta}>
-            <span className={styles.categoryTag}>
+      {/* Main Card */}
+      <motion.div
+        className={styles.mainCard}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Header with Category and Price */}
+        <div className={styles.header}>
+          <div className={styles.headerLeft}>
+            <span className={styles.categoryBadge}>
+              <FaTag className={styles.categoryIcon} />
               {category ? category.name : "Uncategorized"}
             </span>
-            <span className={styles.price}>₦{item.price}</span>
           </div>
-        </motion.div>
-
-        {/* Right: Details */}
-        <motion.div
-          className={styles.detailsSection}
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <h1 className={styles.name}>{item.name}</h1>
-          <div className={styles.rating}>
-            <FaStar className={styles.starFilled} />
-            <FaStar className={styles.starFilled} />
-            <FaStar className={styles.starFilled} />
-            <FaStar className={styles.starFilled} />
-            <FaStarHalfAlt className={styles.starHalf} />
-            <span className={styles.ratingText}>4.5 (24 reviews)</span>
+          <div className={styles.headerRight}>
+            <span className={styles.priceLarge}>₦{item.price}</span>
           </div>
-          <p className={styles.description}>{item.description}</p>
+        </div>
 
-          {/* ── Actions: Like & Share (Icons only) ── */}
-          <div className={styles.actions}>
-            <button
-              className={`${styles.iconBtn} ${isLiked ? styles.liked : ""}`}
-              onClick={toggleLike}
-              aria-label={isLiked ? "Unlike" : "Like"}
-            >
-              {isLiked ? <FaHeart /> : <FaRegHeart />}
-            </button>
-            <button
-              className={styles.iconBtn}
-              onClick={() => setShowShareModal(true)}
-              aria-label="Share"
-            >
-              <FaShare />
-            </button>
+        {/* Item Name */}
+        <h1 className={styles.name}>{item.name}</h1>
+
+        {/* Rating */}
+        <div className={styles.rating}>
+          <FaStar className={styles.starFilled} />
+          <FaStar className={styles.starFilled} />
+          <FaStar className={styles.starFilled} />
+          <FaStar className={styles.starFilled} />
+          <FaStarHalfAlt className={styles.starHalf} />
+          <span className={styles.ratingText}>4.5 (24 reviews)</span>
+        </div>
+
+        {/* Description */}
+        <p className={styles.description}>{item.description}</p>
+
+        {/* Tags */}
+        {item.tags && item.tags.length > 0 && (
+          <div className={styles.tags}>
+            {item.tags.map((tag) => (
+              <span key={tag} className={styles.tag}>
+                #{tag}
+              </span>
+            ))}
           </div>
+        )}
 
-          {item.tags && item.tags.length > 0 && (
-            <div className={styles.tags}>
-              {item.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </motion.div>
-      </div>
+        {/* Divider */}
+        <div className={styles.divider}></div>
+
+        {/* Actions: Like & Share */}
+        <div className={styles.actions}>
+          <button
+            className={`${styles.actionBtn} ${isLiked ? styles.liked : ""}`}
+            onClick={toggleLike}
+            aria-label={isLiked ? "Unlike" : "Like"}
+          >
+            {isLiked ? <FaHeart /> : <FaRegHeart />}
+            <span>{isLiked ? "Liked" : "Like"}</span>
+          </button>
+          <button
+            className={styles.actionBtn}
+            onClick={() => setShowShareModal(true)}
+            aria-label="Share"
+          >
+            <FaShare />
+            <span>Share</span>
+          </button>
+        </div>
+      </motion.div>
 
       {/* Related Items */}
       {relatedItems.length > 0 && (
-        <div className={styles.related}>
-          <h3 className={styles.relatedTitle}>You might also like</h3>
+        <motion.div
+          className={styles.related}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className={styles.relatedHeader}>
+            <FaUtensils className={styles.relatedIcon} />
+            <h3 className={styles.relatedTitle}>You might also like</h3>
+          </div>
           <div className={styles.relatedGrid}>
             {relatedItems.map((rel) => (
               <Link
@@ -220,17 +233,17 @@ export default function ProductDetail() {
                 key={rel.id}
                 className={styles.relatedCard}
               >
-                <img
-                  src={rel.image}
-                  alt={rel.name}
-                  className={styles.relatedImg}
-                />
-                <p className={styles.relatedName}>{rel.name}</p>
-                <span className={styles.relatedPrice}>₦{rel.price}</span>
+                <div className={styles.relatedContent}>
+                  <h4 className={styles.relatedName}>{rel.name}</h4>
+                  <span className={styles.relatedPrice}>₦{rel.price}</span>
+                  {rel.tags && rel.tags.length > 0 && (
+                    <span className={styles.relatedTag}>{rel.tags[0]}</span>
+                  )}
+                </div>
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* ─── Share Modal ─────────────────────────────────────────────── */}
