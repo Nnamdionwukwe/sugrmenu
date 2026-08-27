@@ -18,7 +18,7 @@ export const items = [
   {
     id: "tropical-punch-pitcher",
     name: "Tropical Punch Pitcher",
-    price: 60,
+    price: 90,
     category: "pitchers",
     description: "Tropical punch pitcher.",
     image:
@@ -27,7 +27,7 @@ export const items = [
   {
     id: "paloma-pitcher",
     name: "Paloma Pitcher",
-    price: 60,
+    price: 90,
     category: "pitchers",
     description: "Paloma pitcher.",
     image:
