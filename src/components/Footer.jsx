@@ -60,7 +60,7 @@ export default function Footer() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          VAT 7.3% and service charge 3% not inclusive
+          VAT 7.5% and service charge 5% not inclusive
         </motion.p>
         <p>
           © {new Date().getFullYear()} Sugar Cocktail Bar & Restaurant. 10 Kolda

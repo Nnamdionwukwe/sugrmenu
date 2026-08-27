@@ -1045,6 +1045,44 @@ export const items = [
 
   // ─── MOCKTAILS & BEVERAGES ──────────────────────────────────────
 
+  // ─── COLD COFFEE ─── (MOVED FROM COCKTAILS TO MOCKTAILS)
+  {
+    id: "iced-coffee",
+    name: "Iced Coffee",
+    price: 7,
+    category: "mocktails",
+    description: "Iced coffee.",
+    image:
+      "https://www.eatingbirdfood.com/wp-content/uploads/2025/06/iced-coffee-hero-new.jpg",
+  },
+  {
+    id: "iced-chia-latte",
+    name: "Iced Chia Latte",
+    price: 9,
+    category: "mocktails",
+    description: "Iced latte with chia seeds.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdt66vx0DM7lqZlBuMzUQC8XtnUBLwwf59j9ve_uoReKba_0eG_NOaiIez&s=10",
+  },
+  {
+    id: "frapuccino",
+    name: "Frapuccino",
+    price: 8,
+    category: "mocktails",
+    description: "Frozen coffee frappuccino.",
+    image:
+      "https://jennifermeyering.com/wp-content/uploads/2015/10/frozen-mocha-frappuccino-1.jpg",
+  },
+  {
+    id: "iced-mocha",
+    name: "Iced Mocha",
+    price: 8,
+    category: "mocktails",
+    description: "Iced mocha with chocolate.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8XsYC6GwDnXmH-mlB12vFf8ySOKaeebvmh1pHZUh1F49PBAuQX1nEg7RF&s=10",
+  },
+
   // ─── MOCKTAILS ───
   {
     id: "virgin-colada",
@@ -1473,44 +1511,6 @@ export const items = [
   },
 
   // ─── COCKTAILS ─────────────────────────────────────────────────────
-
-  // ─── COLD COFFEE ───
-  {
-    id: "iced-coffee",
-    name: "Iced Coffee",
-    price: 7,
-    category: "cocktails",
-    description: "Iced coffee.",
-    image:
-      "https://www.eatingbirdfood.com/wp-content/uploads/2025/06/iced-coffee-hero-new.jpg",
-  },
-  {
-    id: "iced-chia-latte",
-    name: "Iced Chia Latte",
-    price: 9,
-    category: "cocktails",
-    description: "Iced latte with chia seeds.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdt66vx0DM7lqZlBuMzUQC8XtnUBLwwf59j9ve_uoReKba_0eG_NOaiIez&s=10",
-  },
-  {
-    id: "frapuccino",
-    name: "Frapuccino",
-    price: 8,
-    category: "cocktails",
-    description: "Frozen coffee frappuccino.",
-    image:
-      "https://jennifermeyering.com/wp-content/uploads/2015/10/frozen-mocha-frappuccino-1.jpg",
-  },
-  {
-    id: "iced-mocha",
-    name: "Iced Mocha",
-    price: 8,
-    category: "cocktails",
-    description: "Iced mocha with chocolate.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8XsYC6GwDnXmH-mlB12vFf8ySOKaeebvmh1pHZUh1F49PBAuQX1nEg7RF&s=10",
-  },
 
   // ─── CLASSIC COCKTAILS ───
   {
