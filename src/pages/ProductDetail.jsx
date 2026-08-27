@@ -23,6 +23,322 @@ import { items, categories } from "../data/menuData";
 import styles from "../styles/ProductDetail.module.css";
 import SugarLoader from "../components/SugarLoader";
 
+// Map of sub-category names for display
+const subCategoryMap = {
+  // Main Menu sub-categories
+  "Batters & Toasts": "Batters & Toasts",
+  "Chicken & Batter": "Chicken & Batter",
+  "Fruit Bowls": "Fruit Bowls",
+  "Brunch Extras": "Brunch Extras",
+  "Early Bird": "Early Bird",
+  Starters: "Starters",
+  "Rice & Poultry": "Rice & Poultry",
+  Seafood: "Seafood",
+  Sides: "Sides",
+  "Wings & Boneless": "Wings & Boneless",
+  Pasta: "Pasta",
+  "Local Dish": "Local Dish",
+  "Burgers & Sandwiches": "Burgers & Sandwiches",
+  Wraps: "Wraps",
+  "Salad Bowls": "Salad Bowls",
+  Dessert: "Dessert",
+
+  // Mocktails & Beverages sub-categories
+  Mocktails: "Mocktails",
+  "Milk Shakes": "Milk Shakes",
+  "Brunch Smoothies": "Brunch Smoothies",
+  "Sugar Special Smoothies": "Sugar Special Smoothies",
+  "Pack Juice": "Pack Juice",
+  Tea: "Tea",
+  "Fresh Juice": "Fresh Juice",
+  "Hot Coffee": "Hot Coffee",
+  "Soft Drinks": "Soft Drinks",
+
+  // Cocktails sub-categories
+  "Cold Coffee": "Cold Coffee",
+  "Classic Cocktail": "Classic Cocktails",
+  "Signature Cocktails": "Signature Cocktails",
+  "Sugar Brunch Cocktails": "Sugar Brunch Cocktails",
+  Cognac: "Cognac",
+  Tequila: "Tequila",
+  Whiskey: "Whiskey",
+  Wine: "Wine",
+  Prosecco: "Prosecco",
+  Champagne: "Champagne",
+  Beer: "Beer",
+  "Wine per Glass": "Wine per Glass",
+  "Shots & Shooters": "Shots & Shooters",
+};
+
+// Original sub-category mapping for items
+const itemSubCategories = {
+  // Batters & Toasts
+  "buttermilk-pancake": "Batters & Toasts",
+  "french-toast-brioche": "Batters & Toasts",
+  "belgian-waffles": "Batters & Toasts",
+
+  // Chicken & Batter
+  "chicken-waffles": "Chicken & Batter",
+  "chicken-stacks": "Chicken & Batter",
+
+  // Fruit Bowls
+  "very-berry-bowl": "Fruit Bowls",
+  "crunch-yoghurt": "Fruit Bowls",
+
+  // Brunch Extras
+  "corn-on-cob": "Brunch Extras",
+  eggs: "Brunch Extras",
+  "beef-sausage": "Brunch Extras",
+  "chicken-sausage": "Brunch Extras",
+  "avocado-slices": "Brunch Extras",
+  "extra-prawns": "Brunch Extras",
+  "french-toast": "Brunch Extras",
+  waffles: "Brunch Extras",
+  pancake: "Brunch Extras",
+  "side-salad": "Brunch Extras",
+  "potato-wedges": "Brunch Extras",
+
+  // Early Bird
+  "breakfast-omelette": "Early Bird",
+  "full-english-fry-up": "Early Bird",
+  "american-breakfast": "Early Bird",
+  "steak-eggs": "Early Bird",
+  "yam-egg-sauce": "Early Bird",
+
+  // Starters
+  "trio-tacos": "Starters",
+  calamari: "Starters",
+  "prawns-spring-rolls": "Starters",
+  "spring-roll": "Starters",
+  "chicken-croquettes": "Starters",
+  "beef-croquettes": "Starters",
+  tacos: "Starters",
+
+  // Rice & Poultry
+  "half-baby-chicken": "Rice & Poultry",
+  oxtail: "Rice & Poultry",
+  "lamb-shank": "Rice & Poultry",
+  ribeye: "Rice & Poultry",
+  "lamb-chops": "Rice & Poultry",
+  "turkey-casserole": "Rice & Poultry",
+  "t-bone": "Rice & Poultry",
+  "surf-turf": "Rice & Poultry",
+  "pot-rice": "Rice & Poultry",
+  "ghanaian-jollof": "Rice & Poultry",
+
+  // Seafood
+  "sole-fish": "Seafood",
+  salmon: "Seafood",
+  "chilli-lemon-king-prawns": "Seafood",
+  "fish-chips": "Seafood",
+
+  // Sides
+  "sugar-special-rice": "Sides",
+  "baked-potatoes": "Sides",
+  "smokey-jollof-rice": "Sides",
+  "sauteed-vegetables": "Sides",
+  "vegetable-stir-fried-rice": "Sides",
+  "mashed-potatoes": "Sides",
+  fries: "Sides",
+
+  // Wings & Boneless
+  "regular-wings": "Wings & Boneless",
+  "signature-wings": "Wings & Boneless",
+
+  // Pasta
+  "spaghetti-bolognese": "Pasta",
+  "smoked-chicken-tagliatelle": "Pasta",
+  "pasta-alla-vodka": "Pasta",
+  "seafood-pasta": "Pasta",
+  "alfredo-pasta": "Pasta",
+  "spaghetti-meatballs": "Pasta",
+  "creole-pasta": "Pasta",
+
+  // Local Dish
+  "loaded-native-rice": "Local Dish",
+  "yam-porridge": "Local Dish",
+  "beans-porridge-plantain": "Local Dish",
+  "ayamase-ofada-stew": "Local Dish",
+  "egusi-soup": "Local Dish",
+  "oxtail-pepper-soup": "Local Dish",
+
+  // Burgers & Sandwiches
+  "pulled-beef-sliders": "Burgers & Sandwiches",
+  "sugar-beef-burger": "Burgers & Sandwiches",
+  "grilled-chicken-burger": "Burgers & Sandwiches",
+  "club-sandwich-fries": "Burgers & Sandwiches",
+  "smokey-big-cheese": "Burgers & Sandwiches",
+
+  // Wraps
+  "pitta-wrap": "Wraps",
+  "chicken-wrap": "Wraps",
+
+  // Salad Bowls
+  "caesar-salad": "Salad Bowls",
+  "shrimp-avo-salad": "Salad Bowls",
+
+  // Dessert
+  cheesecake: "Dessert",
+  "tres-leche-cake": "Dessert",
+  "chocolate-cake": "Dessert",
+
+  // Mocktails
+  "virgin-colada": "Mocktails",
+  "virgin-mojito": "Mocktails",
+  "another-round": "Mocktails",
+  "love-portion": "Mocktails",
+  "twist-toast": "Mocktails",
+  "sugar-chapman": "Mocktails",
+  "pineapple-ginger-lemonade": "Mocktails",
+  "classic-lemonade": "Mocktails",
+
+  // Milk Shakes
+  "strawberry-shake": "Milk Shakes",
+  "banana-shake": "Milk Shakes",
+  "oreos-shake": "Milk Shakes",
+  "vanilla-shake": "Milk Shakes",
+
+  // Brunch Smoothies
+  "berry-blast": "Brunch Smoothies",
+  faded: "Brunch Smoothies",
+  "avm-bliss": "Brunch Smoothies",
+  "de-move": "Brunch Smoothies",
+
+  // Sugar Special Smoothies
+  "pinky-promise": "Sugar Special Smoothies",
+  "sexy-lady": "Sugar Special Smoothies",
+  "tutti-fruity": "Sugar Special Smoothies",
+
+  // Pack Juice
+  "orange-pack-juice": "Pack Juice",
+  "apple-pack-juice": "Pack Juice",
+  "pineapple-pack-juice": "Pack Juice",
+  "grape-pack-juice": "Pack Juice",
+  "cranberry-pack": "Pack Juice",
+
+  // Tea
+  "tea-box": "Tea",
+  "arabian-tea": "Tea",
+
+  // Fresh Juice
+  "orange-juice-fresh": "Fresh Juice",
+  "watermelon-juice-fresh": "Fresh Juice",
+  "pineapple-juice-fresh": "Fresh Juice",
+  "mixed-fruit-juice": "Fresh Juice",
+
+  // Hot Coffee
+  espresso: "Hot Coffee",
+  "double-espresso": "Hot Coffee",
+  cappuccino: "Hot Coffee",
+  americano: "Hot Coffee",
+  "cafe-latte": "Hot Coffee",
+  macchaito: "Hot Coffee",
+  "hot-cocoa": "Hot Coffee",
+  "chai-latte": "Hot Coffee",
+
+  // Soft Drinks
+  coke: "Soft Drinks",
+  fanta: "Soft Drinks",
+  sprite: "Soft Drinks",
+  "energy-drink": "Soft Drinks",
+  "tonic-water": "Soft Drinks",
+  "soda-water": "Soft Drinks",
+  "still-water": "Soft Drinks",
+
+  // Cold Coffee
+  "iced-coffee": "Cold Coffee",
+  "iced-chia-latte": "Cold Coffee",
+  frapuccino: "Cold Coffee",
+  "iced-mocha": "Cold Coffee",
+
+  // Classic Cocktails
+  "espresso-martini": "Classic Cocktail",
+  "long-island": "Classic Cocktail",
+  "whiskey-sour": "Classic Cocktail",
+  "tequila-sour": "Classic Cocktail",
+  negroni: "Classic Cocktail",
+  "old-fashioned": "Classic Cocktail",
+  "moscow-mule": "Classic Cocktail",
+  "spicy-magarita": "Classic Cocktail",
+  daiquiri: "Classic Cocktail",
+  mojito: "Classic Cocktail",
+  cosmopolitan: "Classic Cocktail",
+  "pornstar-martini": "Classic Cocktail",
+  "singapore-sling": "Classic Cocktail",
+  "gin-basil": "Classic Cocktail",
+  penicillin: "Classic Cocktail",
+  pinacolada: "Classic Cocktail",
+
+  // Signature Cocktails
+  "happy-mistake": "Signature Cocktails",
+  "love-me-jeje": "Signature Cocktails",
+  "7-brothers": "Signature Cocktails",
+  "cloud-9": "Signature Cocktails",
+  "red-hat-lady": "Signature Cocktails",
+  pandemic: "Signature Cocktails",
+  "slow-steady": "Signature Cocktails",
+
+  // Sugar Brunch Cocktails
+  "aperol-spritz": "Sugar Brunch Cocktails",
+  "blue-hawaii": "Sugar Brunch Cocktails",
+  appletini: "Sugar Brunch Cocktails",
+  "classic-mimosa": "Sugar Brunch Cocktails",
+  "strawberry-mimosa": "Sugar Brunch Cocktails",
+  "classic-bellini": "Sugar Brunch Cocktails",
+
+  // Cognac
+  "hennessy-vs": "Cognac",
+  "martell-blue-swift": "Cognac",
+
+  // Tequila
+  sierra: "Tequila",
+  olmeca: "Tequila",
+  patron: "Tequila",
+  volcan: "Tequila",
+  "casamigo-blanco": "Tequila",
+
+  // Whiskey
+  "jameson-black": "Whiskey",
+  "monkey-shoulder": "Whiskey",
+  "glen-15yrs": "Whiskey",
+  "glen-18yrs": "Whiskey",
+
+  // Wine
+  "sweet-kiss": "Wine",
+  "thomas-barton": "Wine",
+  cederburg: "Wine",
+  "whispering-angel": "Wine",
+  "william-cole": "Wine",
+
+  // Prosecco
+  "bottega-rose": "Prosecco",
+  "rugger-guistino": "Prosecco",
+  "rugger-quartese": "Prosecco",
+
+  // Champagne
+  "belaire-rose": "Champagne",
+  "moet-rose": "Champagne",
+  "veuve-clicquot-brut": "Champagne",
+
+  // Beer
+  heineken: "Beer",
+  desperado: "Beer",
+  star: "Beer",
+  guiness: "Beer",
+
+  // Wine per Glass
+  "house-sweet-wine-red": "Wine per Glass",
+  "house-sweet-wine-white": "Wine per Glass",
+  "house-sweet-wine-rose": "Wine per Glass",
+
+  // Shots & Shooters
+  "whiskey-shot": "Shots & Shooters",
+  "tequila-shot": "Shots & Shooters",
+  "gin-shot": "Shots & Shooters",
+  "b-52": "Shots & Shooters",
+  "jager-bomb": "Shots & Shooters",
+};
+
 export default function ProductDetail() {
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -32,6 +348,7 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState(null);
   const [category, setCategory] = useState(null);
+  const [subCategory, setSubCategory] = useState(null);
 
   // ── Load item data ──────────────────────────────────────────────────
   useEffect(() => {
@@ -46,6 +363,10 @@ export default function ProductDetail() {
           (c) => c.id === foundItem.category,
         );
         setCategory(foundCategory || null);
+
+        // Get the sub-category from the mapping
+        const subCat = itemSubCategories[foundItem.id] || null;
+        setSubCategory(subCat);
       }
 
       setLoading(false);
@@ -136,6 +457,11 @@ export default function ProductDetail() {
     .filter((i) => i.category === item.category && i.id !== item.id)
     .slice(0, 4);
 
+  // Get the display name for the sub-category
+  const subCategoryDisplay = subCategory
+    ? subCategoryMap[subCategory] || subCategory
+    : null;
+
   return (
     <div className={styles.container}>
       {/* Back button */}
@@ -160,12 +486,13 @@ export default function ProductDetail() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Header with Category and Price */}
+        {/* Header with Sub-Category and Price */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <span className={styles.categoryBadge}>
               <FaTag className={styles.categoryIcon} />
-              {category ? category.name : "Uncategorized"}
+              {subCategoryDisplay ||
+                (category ? category.name : "Uncategorized")}
             </span>
           </div>
           <div className={styles.headerRight}>
