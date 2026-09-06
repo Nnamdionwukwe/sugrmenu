@@ -389,7 +389,19 @@ export default function Category() {
       }}
     >
       {/* Overlay for readability */}
-      <div className={styles.overlay}></div>
+      <div
+        className={styles.overlay}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: window.innerWidth <= 768 ? "scroll" : "fixed",
+          minHeight: "100vh",
+          minHeight: "100dvh",
+          width: "100%",
+        }}
+      ></div>
 
       <div className={styles.content}>
         {/* Header with back button and category title */}
