@@ -28,7 +28,7 @@ export default function Home() {
     <div className={styles.home}>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <motion.div
+          {/* <motion.div
             className={styles.logoWrapper}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -39,7 +39,7 @@ export default function Home() {
               alt="Sugar Cocktail Bar"
               className={styles.logoImage}
             />
-          </motion.div>
+          </motion.div> */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
