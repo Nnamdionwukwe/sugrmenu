@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  min-height: 100dvh; /* For mobile browsers with dynamic toolbar */
+  min-height: 100dvh;
   width: 100%;
   position: relative;
   padding: 2rem 1.5rem;
@@ -12,7 +12,6 @@
   flex-direction: column;
 }
 
-/* ── Dark overlay for readability ─────────────────────────────── */
 .overlay {
   position: fixed;
   inset: 0;
@@ -30,32 +29,6 @@
   z-index: 1;
   flex: 1;
   width: 100%;
-}
-
-/* ── Responsive ───────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-    background-attachment: scroll; /* Better performance on mobile */
-    min-height: 100dvh;
-  }
-
-  .overlay {
-    background: rgba(0, 0, 0, 0.65);
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0.75rem 0.5rem;
-  }
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-  .container {
-    min-height: 100vh;
-    padding: 0.5rem 1rem;
-  }
 }
 
 .header {
@@ -97,7 +70,6 @@
   width: 80px;
 }
 
-/* ── Search Bar ────────────────────────────────────────────────── */
 .searchBar {
   position: relative;
   margin-bottom: 2rem;
@@ -146,7 +118,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ── Sub-Category Sections ────────────────────────────────────── */
 .categoryWrapper {
   display: flex;
   flex-direction: column;
@@ -213,7 +184,6 @@
   font-weight: 500;
 }
 
-/* ── Grid ──────────────────────────────────────────────────────── */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -307,7 +277,6 @@
   background: #f0c000;
 }
 
-/* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -320,5 +289,23 @@
   }
   .container {
     padding: 1rem;
+    background-attachment: scroll;
+    min-height: 100dvh;
+  }
+  .overlay {
+    background: rgba(0, 0, 0, 0.65);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    min-height: 100vh;
+    padding: 0.5rem 1rem;
   }
 }

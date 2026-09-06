@@ -65,7 +65,6 @@ const subCategoryMap = {
 
 // ─── Original sub-category mapping ──────────────────────────────
 const itemSubCategories = {
-  // ... (keep all your existing itemSubCategories mapping here)
   // Batters & Toasts
   "buttermilk-pancake": "Batters & Toasts",
   "french-toast-brioche": "Batters & Toasts",
@@ -302,7 +301,6 @@ export default function Category() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // ✅ ALL HOOKS MUST BE CALLED BEFORE ANY CONDITIONAL RETURNS
   const category = useMemo(
     () => categories.find((c) => c.id === categoryId),
     [categoryId],
@@ -313,14 +311,12 @@ export default function Category() {
     [categoryId],
   );
 
-  // Get the background image for this category
   const backgroundImage = useMemo(() => {
     return (
       categoryBackgrounds[categoryId] || "/images/categories/default-bg.jpg"
     );
   }, [categoryId]);
 
-  // Simulate loading when category changes
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
@@ -329,7 +325,6 @@ export default function Category() {
     return () => clearTimeout(timer);
   }, [categoryId]);
 
-  // Group items by sub-category
   const groupedItems = useMemo(() => {
     const groups = {};
     categoryItems.forEach((item) => {
@@ -342,7 +337,6 @@ export default function Category() {
     return groups;
   }, [categoryItems]);
 
-  // Filter grouped items based on search
   const filteredGroups = useMemo(() => {
     if (searchTerm.trim() === "") {
       return groupedItems;
@@ -364,7 +358,6 @@ export default function Category() {
 
   const hasFilteredItems = Object.keys(filteredGroups).length > 0;
 
-  // ✅ Now it's safe to have conditional returns
   if (loading) {
     return <SugarLoader />;
   }
@@ -384,27 +377,17 @@ export default function Category() {
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
+        minHeight: "100vh",
+        minHeight: "100dvh",
+        width: "100%",
       }}
     >
-      {/* Overlay for readability */}
-      <div
-        className={styles.overlay}
-        // style={{
-        //   backgroundImage: `url(${backgroundImage})`,
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center center",
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundAttachment: window.innerWidth <= 768 ? "scroll" : "fixed",
-        //   minHeight: "100vh",
-        //   minHeight: "100dvh",
-        //   width: "100%",
-        // }}
-      ></div>
+      <div className={styles.overlay}></div>
 
       <div className={styles.content}>
-        {/* Header with back button and category title */}
         <div className={styles.header}>
           <button className={styles.backBtn} onClick={() => navigate("/")}>
             <FaArrowLeft /> Menu
@@ -413,7 +396,6 @@ export default function Category() {
           <div className={styles.spacer} />
         </div>
 
-        {/* Search bar */}
         <div className={styles.searchBar}>
           <FaSearch className={styles.searchIcon} />
           <input
@@ -433,7 +415,6 @@ export default function Category() {
           )}
         </div>
 
-        {/* Items grid with sub-category sections */}
         {!hasFilteredItems ? (
           <div className={styles.emptyState}>
             <p>No items found matching your search.</p>
