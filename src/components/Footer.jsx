@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.overlay}></div>
       <div className={styles.container}>
         <div className={styles.brand}>
           <span className={styles.logo}>Sugar</span>
@@ -75,7 +76,6 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {" "}
             GesTechCom Technologies
           </a>
         </div>
