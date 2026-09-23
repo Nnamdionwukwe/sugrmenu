@@ -19,6 +19,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* ── object-position tuning ──
+     "center top" shows the top slice of the image; "center center" the
+     middle; "center bottom" the bottom. Adjust if the important part of
+     your image sits off-center. */
   object-position: center center;
   z-index: 0;
   pointer-events: none;
@@ -308,8 +312,10 @@
     min-height: 100dvh;
   }
 
-  /* On mobile, use a portrait-friendly object-position so the
-     visible slice of the image sits in a good spot */
+  /* ── object-position for the mobile image ──
+     Change this to control which slice of the 1080x1920 portrait
+     image is visible. Options: "center top", "center center",
+     "center bottom", or "left center" / "right center". */
   .backgroundImage {
     object-position: center center;
   }

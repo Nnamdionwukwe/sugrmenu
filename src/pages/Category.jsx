@@ -313,13 +313,22 @@ export default function Category() {
 
   return (
     <div className={styles.container}>
-      {/* ── Background image as a real <img> element (like Home's video) ── */}
-      <img
-        src="/images/categories/sugar-drink-menu.jpeg"
-        alt=""
-        aria-hidden="true"
-        className={styles.backgroundImage}
-      />
+      {/* ── Background image ───────────────────────────────────────────
+          Uses a <picture> so the browser can pick the portrait crop on
+          phones and the landscape one on desktop. object-position on
+          the class controls which slice of each image is visible. */}
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcSet="/images/categories/sugar-drink-menu-mobile.jpeg"
+        />
+        <img
+          src="/images/categories/sugar-drink-menu.jpeg"
+          alt=""
+          aria-hidden="true"
+          className={styles.backgroundImage}
+        />
+      </picture>
       <div className={styles.overlay}></div>
 
       <div className={styles.content}>
