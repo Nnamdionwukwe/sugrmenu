@@ -2,22 +2,20 @@
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;
-  height: 100%;
   position: relative;
   padding: 2rem 1.5rem;
-  /* Show the FULL image, letterboxed if needed — never crop/zoom */
-  background-size: contain !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  /* Fixed attachment interacts badly with contain on iOS Safari —
-     use scroll on all viewports so the image stays anchored and
-     fully visible while the content scrolls over it. */
-  background-attachment: scroll !important;
-  /* Neutral dark backdrop behind the letterboxed areas */
+  /* Fill the entire viewport with the image — no letterbox bars */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* scroll instead of fixed — fixed + cover over-zooms on iOS Safari */
+  background-attachment: scroll;
+  /* Fallback dark tone behind the image (visible only if image fails) */
   background-color: #0a0a0a;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* Prevent horizontal scroll from any stray overflow */
+  overflow-x: hidden;
 }
 
 .overlay {
@@ -298,12 +296,11 @@
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
-    /* Keep contain on mobile — full image visible, never cropped */
-    background-size: contain !important;
-    background-position: center center !important;
-    background-attachment: scroll !important;
+    /* Keep cover on mobile — image fills the viewport, no bars */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
     min-height: 100dvh;
-    height: 100%;
   }
 
   .overlay {
@@ -345,10 +342,10 @@
 @media (max-width: 480px) {
   .container {
     padding: 0.75rem 0.5rem;
-    /* Keep contain on small phones too */
-    background-size: contain !important;
-    background-position: center center !important;
-    background-attachment: scroll !important;
+    /* Keep cover — no bars on phones */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
     min-height: 100dvh;
   }
   .grid {
@@ -411,9 +408,9 @@
 @media (max-width: 380px) {
   .container {
     padding: 0.5rem 0.3rem;
-    background-size: contain !important;
-    background-position: center center !important;
-    background-attachment: scroll !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
   }
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -461,9 +458,9 @@
   .container {
     min-height: 100vh;
     padding: 0.5rem 1rem;
-    background-size: contain !important;
-    background-position: center center !important;
-    background-attachment: scroll !important;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
   }
   .header {
     margin-bottom: 0.8rem;
