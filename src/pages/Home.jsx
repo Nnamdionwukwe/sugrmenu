@@ -44,7 +44,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Explore our exquisite menu – crafted with passions.
+            Explore our exquisite menu – crafted with passion.
           </motion.p>
         </div>
       </section>
