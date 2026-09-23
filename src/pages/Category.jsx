@@ -8,12 +8,12 @@ import SugarLoader from "../components/SugarLoader";
 
 // ─── Category Background Images ─────────────────────────────────
 const categoryBackgrounds = {
-  "main-menu": "/images/categories/sugarmenu-bg.jpg",
+  "main-menu": "/images/categories/sugar-drink-menu.jpeg",
   platters: "/images/categories/sugar-drink-menu.jpeg",
-  pitchers: "/images/categories/pitchers-bg.jpg",
-  shisha: "/images/categories/shisha-bg.jpg",
-  mocktails: "/images/categories/mocktails-bg.jpg",
-  cocktails: "/images/categories/cocktails-bg.jpg",
+  pitchers: "/images/categories/sugar-drink-menu.jpeg",
+  shisha: "/images/categories/sugar-drink-menu.jpeg",
+  mocktails: "/images/categories/sugar-drink-menu.jpeg",
+  cocktails: "/images/categories/sugar-drink-menu.jpeg",
 };
 
 // ─── Sub-Category Map ────────────────────────────────────────────
