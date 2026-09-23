@@ -304,8 +304,8 @@
     padding: 1rem;
     /* Optional: swap to a portrait-cropped version of the image
        for phones — uncomment and point to your mobile asset.
+       */
     background-image: url("/images/categories/sugar-drink-menu-mobile.jpeg");
-    */
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
