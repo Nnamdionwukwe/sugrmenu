@@ -376,16 +376,6 @@ export default function Category() {
       className={styles.container}
       style={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        minHeight: "100vh",
-        minHeight: "100dvh",
-        width: "100%",
-        height: "100%",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
       <div className={styles.overlay}></div>
