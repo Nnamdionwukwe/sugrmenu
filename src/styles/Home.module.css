@@ -183,6 +183,16 @@
 }
 
 /* ── Responsive ───────────────────────────────────────────────── */
+
+/* Tablet / small laptop */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+/* Mobile landscape / large phones */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.2rem;
@@ -191,7 +201,9 @@
     font-size: 1rem;
   }
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    /* Force two columns at all mobile widths */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
   .gridWrapper {
     padding: 1.2rem;
@@ -199,6 +211,66 @@
   .logoImage {
     width: 70px;
     height: 70px;
+  }
+  .card {
+    padding: 1rem 0.75rem;
+  }
+  .iconWrapper {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* Small phones (iPhone SE, etc.) — still two columns */
+@media (max-width: 480px) {
+  .categories {
+    padding: 0 1rem;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  .gridWrapper {
+    padding: 1rem;
+  }
+  .gridTitle {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .card {
+    padding: 0.75rem 0.5rem;
+  }
+  .card h3 {
+    font-size: 0.85rem;
+  }
+  .iconWrapper {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .categoryIcon {
+    font-size: 1.75rem;
+  }
+}
+
+/* Very small phones (320px, iPhone 5/SE 1st gen) — STILL two columns */
+@media (max-width: 360px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .card {
+    padding: 0.6rem 0.4rem;
+  }
+  .card h3 {
+    font-size: 0.75rem;
+  }
+  .iconWrapper {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .categoryIcon {
+    font-size: 1.5rem;
   }
 }
 
