@@ -4,7 +4,6 @@ import { categories } from "../data/menuData";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import * as Icons from "react-icons/fa";
-import logo from "../assets/sugar-logo.PNG";
 import QRCodeSection from "../components/QRCodeSection";
 import SugarLoader from "../components/SugarLoader";
 
@@ -27,26 +26,19 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <section className={styles.hero}>
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/welcomeimage.JPG"
+        >
+          <source src="/welcomevideo.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
-          {/* <motion.div
-            className={styles.logoWrapper}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <img
-              src={logo}
-              alt="Sugar Cocktail Bar"
-              className={styles.logoImage}
-            />
-          </motion.div> */}
-          {/* <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Sugar Cocktail Bar
-          </motion.h1> */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

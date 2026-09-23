@@ -356,7 +356,7 @@ export const items = [
   {
     id: "side-salad",
     name: "Side Salad",
-    price: 2,
+    price: 3,
     category: "main-menu",
     description: "Fresh garden salad.",
     image:
@@ -446,7 +446,7 @@ export const items = [
   },
   {
     id: "prawns-spring-rolls",
-    name: "Prawns Spring Rolls",
+    name: "Crispy Prawns Spring Rolls",
     price: 14.5,
     category: "main-menu",
     description: "Crispy spring rolls filled with prawns.",
@@ -527,17 +527,17 @@ export const items = [
   {
     id: "ribeye",
     name: "Ribeye",
-    price: 45,
+    price: 40,
     category: "main-menu",
     description:
-      "Tender slow cooked prime steak, served with one sauce, and your choice of side: Sauteed Veggies, potato wedges, mashed potato.",
+      "Tender slow cooked prime steak, served with one sauce, and your choice of side: Sauteed Veggies, mashed potato.",
     image:
       "https://justcook.butcherbox.com/wp-content/uploads/2025/01/Grain-Finished-Ribeye-Steak-with-Potato-Puree-and-Cipollini-Onion-Marmalade-500x375.jpg",
   },
   {
     id: "lamb-chops",
     name: "Lamb Chops",
-    price: 50,
+    price: 45,
     category: "main-menu",
     description:
       "Tender slow cooked prime steak, served with one sauce, and your choice of side: Sauteed Veggies, potato wedges, mashed potato.",
@@ -557,7 +557,7 @@ export const items = [
   {
     id: "t-bone",
     name: "T-Bone",
-    price: 45,
+    price: 42,
     category: "main-menu",
     description:
       "Tender slow cooked prime steak, served with one sauce, and your choice of side: Sauteed Veggies, potato wedges, mashed potato.",
@@ -577,7 +577,7 @@ export const items = [
   {
     id: "pot-rice",
     name: "Pot Rice",
-    price: 23.5,
+    price: 20,
     category: "main-menu",
     description:
       "Rice, Shrimps, beef, chicken, veggies, sweet corn, and green pea.",
@@ -592,6 +592,16 @@ export const items = [
     description: "Rice, carrot, bell peppers, onions, dry fish, and Asun.",
     image:
       "https://i0.wp.com/www.lubzonline.com/wp-content/uploads/2021/02/E10DB4E6-4731-4829-A5F1-B36B0AC88C98-scaled.jpeg?resize=480%2C270&ssl=1",
+  },
+  {
+    id: "loaded-native-rice",
+    name: "Loaded Native Rice",
+    price: 20,
+    category: "main-menu",
+    description:
+      "A taste of our native pot, our signature native rice, generously served with a protein mix of beef, snail, choice of stock fish and a blend of traditional spices.",
+    image:
+      "https://cdn.shopify.com/s/files/1/0521/2415/6104/articles/Bowl_of_Nigerian_Native_Jollof_Rice.jpg?v=1670954372",
   },
 
   // ─── SEAFOOD ───
@@ -715,7 +725,8 @@ export const items = [
     name: "Signature Wings",
     price: 12.5,
     category: "main-menu",
-    description: "10 pieces of signature wings (17,000).",
+    description:
+      "10 pieces of signature wings (17,000). Available styles: Faai Style (honey, celery leaf, sombo pepper & spice), Lemon Pepper Wings (fresh pepper, onions, garlic, tatshe, little lemon & spice), Mango Habanero Wings (mango syrup, hot sauce, parmesan cheese, block butter, and seasoning).",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5TW5U5x2vraMT7v4V6PxCHYrI_RM-7hRNfEN96D9_FTdOjZInjom-fjRn&s=10",
   },
@@ -791,16 +802,6 @@ export const items = [
   },
 
   // ─── LOCAL DISH ───
-  {
-    id: "loaded-native-rice",
-    name: "Loaded Native Rice",
-    price: 25,
-    category: "main-menu",
-    description:
-      "A taste of our native pot, our signature native rice, generously served with a protein mix of beef, snail, choice of stock fish and a blend of traditional spices.",
-    image:
-      "https://cdn.shopify.com/s/files/1/0521/2415/6104/articles/Bowl_of_Nigerian_Native_Jollof_Rice.jpg?v=1670954372",
-  },
   {
     id: "yam-porridge",
     name: "Yam Porridge",
@@ -882,7 +883,7 @@ export const items = [
   {
     id: "club-sandwich-fries",
     name: "Club Sandwich + Fries",
-    price: 17,
+    price: 8,
     category: "main-menu",
     description:
       "Sliced toast bread stacked with layers of succulent chicken, crispy bacon, fresh lettuce, tomatoes and cream mayonnaise.",
@@ -895,7 +896,7 @@ export const items = [
     price: 18,
     category: "main-menu",
     description:
-      "Ragu beef, cheddar cheese, BBQ sauce, caramelized onions, Batavia salad, fries.",
+      "Smokey Beef Patty, cheddar cheese, BBQ sauce, caramelized onions, lettuce & onions, fries.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQawr0-ZKVhEce7-6atywGJADvEG9k-am9Ph7sFu-WIquOtugd4GHhXaDo_&s=10",
   },
@@ -915,7 +916,8 @@ export const items = [
     name: "Chicken Wrap",
     price: 12,
     category: "main-menu",
-    description: "Chicken wrap.",
+    description:
+      "Chicken breast, bell peppers, onion, lettuce, mozzarella cheese, shawarma sauce.",
     image:
       "https://www.simplejoy.com/wp-content/uploads/2020/07/Chicken-wrap.jpg",
   },
@@ -1045,7 +1047,7 @@ export const items = [
 
   // ─── MOCKTAILS & BEVERAGES ──────────────────────────────────────
 
-  // ─── COLD COFFEE ─── (MOVED FROM COCKTAILS TO MOCKTAILS)
+  // ─── COLD COFFEE ───
   {
     id: "iced-coffee",
     name: "Iced Coffee",
@@ -1601,7 +1603,7 @@ export const items = [
   {
     id: "mojito",
     name: "Mojito",
-    price: 14,
+    price: 12,
     category: "cocktails",
     description: "Rum, mint leaf, lime, sugar, soda.",
     image:
@@ -1789,6 +1791,80 @@ export const items = [
     description: "Peach Puree & Prosecco.",
     image:
       "https://stacyling.com/wp-content/uploads/2022/02/Updated-bellini-cover-photo2.jpg",
+  },
+  {
+    id: "passion-fruit-mimosa",
+    name: "Passion Fruit Mimosa",
+    price: 10,
+    category: "cocktails",
+    description: "Passion Fruit, Orange & Sparkling Wine.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmVxWOHgKWmkK5cOq0PXK9yCBdYlxbAeDg6TOQfK2lbM0qCsQqrsJTQKQ&s=10",
+  },
+  {
+    id: "peach-spritz",
+    name: "Peach Spritz",
+    price: 10,
+    category: "cocktails",
+    description: "Prosecco, Peach Puree & Soda.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdHW-YyyTBdYW4qYlxSkTgY7-qBRq6CbGvVyMNT9xqNsJmSNCpVs-7X0s&s=10",
+  },
+
+  // ─── DIRTY JUICE ───
+  {
+    id: "pinky-gt",
+    name: "Pinky G&T",
+    price: 9,
+    category: "cocktails",
+    description: "Strawberry, Gin, Tonic.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjgnWWWnpc8yRRqbB2E0L2qY8i-9h1SSSMkO2L__-m6QqIRQwOOgWZx-w&s=10",
+  },
+  {
+    id: "sunburst-marg",
+    name: "Sunburst Marg",
+    price: 10,
+    category: "cocktails",
+    description: "Mango, Triple Sec, Tequila.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBRQm4tlrj3xdgqfqDqrXYX3Z1bHx5w1NKNLdRSb6xNnKxrWvYen2jNmE&s=10",
+  },
+  {
+    id: "pink-rita",
+    name: "Pink Rita",
+    price: 10,
+    category: "cocktails",
+    description: "Strawberry, Tequila, Triple Sec.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2gXK0cyZ1ZWZWzXwkOWlU-0fVXP2YNQ6f4xLn5J2R6uADfmqLLaA2YrY&s=10",
+  },
+  {
+    id: "whiskey-wave",
+    name: "Whiskey Wave",
+    price: 10,
+    category: "cocktails",
+    description: "Pineapple, Lemon, Whiskey.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyvqq0OVtH-4mXOk3PxpVKUqZzr-c6VMK6wZ4Md6A2pz_MMK4O2nxdBiU&s=10",
+  },
+  {
+    id: "pineapple-heat",
+    name: "Pineapple Heat",
+    price: 10,
+    category: "cocktails",
+    description: "Pineapple, Tequila, Triple Sec.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdMY5Qh4Hm3vxVfFYLP-PvNW6w1aMsPYx6VQfUMHDOOZdB-VX4wZ9NuZ0&s=10",
+  },
+  {
+    id: "passion-pop",
+    name: "Passion Pop",
+    price: 11,
+    category: "cocktails",
+    description: "Passion Fruit, Vodka, Sparkling Wine.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2LhNwKJWyF8TwGvpY3tR1bT0gR6mnsVGQrKF4PYXWfjNhgHxdTd3CwYs&s=10",
   },
 
   // ─── COGNAC ───

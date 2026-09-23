@@ -5,43 +5,54 @@
   min-height: 100vh;
 }
 
-/* ── Hero with background image ───────────────────────────────── */
+/* ── Hero with background video ───────────────────────────────── */
 .hero {
-  background: linear-gradient(
-    135deg,
-    rgba(46, 90, 39, 0.85) 0%,
-    rgba(26, 51, 22, 0.92) 100%
-  );
-  background-image: url("/welcomeimage.JPG");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 3rem 2rem;
-  text-align: center;
   position: relative;
   overflow: hidden;
   min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+  /* Fallback background if the video fails to load */
+  background: linear-gradient(
+    135deg,
+    rgba(46, 90, 39, 0.85) 0%,
+    rgba(26, 51, 22, 0.92) 100%
+  );
 }
 
-/* ── Optional: overlay to darken background image ────────────── */
-.hero::before {
-  content: "";
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  /* Hide any white flash between poster and first frame */
+  background: #1a3316;
+  /* Prevent right-click save on some browsers (cosmetic) */
+  pointer-events: none;
+}
+
+/* Overlay — replaces the old ::before pseudo-element */
+.heroOverlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
-  z-index: 0;
+  z-index: 1;
 }
 
 .heroContent {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
   margin: 0 auto;
 }
 
+/* Gold accent bar at the bottom of the hero */
 .hero::after {
   content: "";
   position: absolute;
@@ -50,7 +61,7 @@
   right: 0;
   height: 4px;
   background: var(--gold);
-  z-index: 1;
+  z-index: 3;
 }
 
 /* ── New: Logo styles ─────────────────────────────────────────── */
