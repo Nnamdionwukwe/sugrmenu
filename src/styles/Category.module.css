@@ -4,6 +4,11 @@
   width: 100%;
   position: relative;
   padding: 2rem 1.5rem;
+
+  /* ── Background image (shared by all category pages) ──
+     Change this single line to swap the image everywhere. */
+  background-image: url("/images/categories/sugar-drink-menu.jpeg");
+
   /* Fill the entire viewport with the image — no letterbox bars */
   background-size: cover;
   background-position: center center;
@@ -12,6 +17,7 @@
   background-attachment: scroll;
   /* Fallback dark tone behind the image (visible only if image fails) */
   background-color: #0a0a0a;
+
   display: flex;
   flex-direction: column;
   /* Prevent horizontal scroll from any stray overflow */
@@ -296,7 +302,10 @@
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
-    /* Keep cover on mobile — image fills the viewport, no bars */
+    /* Optional: swap to a portrait-cropped version of the image
+       for phones — uncomment and point to your mobile asset.
+    background-image: url("/images/categories/sugar-drink-menu-mobile.jpeg");
+    */
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
@@ -342,7 +351,6 @@
 @media (max-width: 480px) {
   .container {
     padding: 0.75rem 0.5rem;
-    /* Keep cover — no bars on phones */
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;

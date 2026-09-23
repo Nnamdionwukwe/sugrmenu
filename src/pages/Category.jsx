@@ -6,16 +6,6 @@ import { categories, items } from "../data/menuData";
 import styles from "../styles/Category.module.css";
 import SugarLoader from "../components/SugarLoader";
 
-// ─── Category Background Images ─────────────────────────────────
-const categoryBackgrounds = {
-  "main-menu": "/images/categories/sugar-drink-menu.jpeg",
-  platters: "/images/categories/sugar-drink-menu.jpeg",
-  pitchers: "/images/categories/sugar-drink-menu.jpeg",
-  shisha: "/images/categories/sugar-drink-menu.jpeg",
-  mocktails: "/images/categories/sugar-drink-menu.jpeg",
-  cocktails: "/images/categories/sugar-drink-menu.jpeg",
-};
-
 // ─── Sub-Category Map ────────────────────────────────────────────
 const subCategoryMap = {
   // Main Menu sub-categories
@@ -311,12 +301,6 @@ export default function Category() {
     [categoryId],
   );
 
-  const backgroundImage = useMemo(() => {
-    return (
-      categoryBackgrounds[categoryId] || "/images/categories/default-bg.jpg"
-    );
-  }, [categoryId]);
-
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
@@ -372,12 +356,7 @@ export default function Category() {
   }
 
   return (
-    <div
-      className={styles.container}
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-      }}
-    >
+    <div className={styles.container}>
       <div className={styles.overlay}></div>
 
       <div className={styles.content}>
