@@ -8,7 +8,7 @@ import SugarLoader from "../components/SugarLoader";
 
 // ─── Category Background Images ─────────────────────────────────
 const categoryBackgrounds = {
-  "main-menu": "/images/categories/main-menu-bg.jpg",
+  "main-menu": "/images/categories/sugarmenu-bg.jpg",
   platters: "/images/categories/platters-bg.jpg",
   pitchers: "/images/categories/pitchers-bg.jpg",
   shisha: "/images/categories/shisha-bg.jpg",
