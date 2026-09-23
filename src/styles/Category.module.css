@@ -4,31 +4,34 @@
   width: 100%;
   position: relative;
   padding: 2rem 1.5rem;
-
-  /* ── Background image (shared by all category pages) ──
-     Change this single line to swap the image everywhere. */
-  background-image: url("/images/categories/sugar-drink-menu.jpeg");
-
-  /* Fill the entire viewport with the image — no letterbox bars */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  /* scroll instead of fixed — fixed + cover over-zooms on iOS Safari */
-  background-attachment: scroll;
-  /* Fallback dark tone behind the image (visible only if image fails) */
+  /* Dark backdrop behind everything */
   background-color: #0a0a0a;
-
   display: flex;
   flex-direction: column;
   /* Prevent horizontal scroll from any stray overflow */
   overflow-x: hidden;
 }
 
+/* ── Background image (real DOM element, like Home's video) ── */
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
+  /* Prevent user-select drag */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
-  z-index: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   height: 100dvh;
@@ -39,7 +42,7 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   flex: 1;
   width: 100%;
 }
@@ -302,14 +305,13 @@
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
-    /* Optional: swap to a portrait-cropped version of the image
-       for phones — uncomment and point to your mobile asset.
-       */
-    background-image: url("/images/categories/sugar-drink-menu-mobile.jpeg");
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
     min-height: 100dvh;
+  }
+
+  /* On mobile, use a portrait-friendly object-position so the
+     visible slice of the image sits in a good spot */
+  .backgroundImage {
+    object-position: center center;
   }
 
   .overlay {
@@ -351,9 +353,6 @@
 @media (max-width: 480px) {
   .container {
     padding: 0.75rem 0.5rem;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
     min-height: 100dvh;
   }
   .grid {
@@ -416,9 +415,6 @@
 @media (max-width: 380px) {
   .container {
     padding: 0.5rem 0.3rem;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
   }
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -466,9 +462,6 @@
   .container {
     min-height: 100vh;
     padding: 0.5rem 1rem;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
   }
   .header {
     margin-bottom: 0.8rem;
